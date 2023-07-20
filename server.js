@@ -16,7 +16,22 @@ app.prepare().then(() => {
   })
 
   server.listen(port, (err) => {
-    if (err) throw err
+    if (err) {
+      if (err.syscall !== 'listen') {
+        throw err;
+      }
+    
+      switch (err.code) {
+        case 'EACCESS':
+          console.error(`Port ${envVariables.port} requires elavated privileges`);
+          process.exit(1);
+        case 'EADDRINUSE':
+          console.error(`Port ${envVariables.port} is already in use`);
+          process.exit(1);
+        default:
+          throw err;
+      }
+    }
     console.log(`> Ready on http://localhost:${port}`)
   })
 })
