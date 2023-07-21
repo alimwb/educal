@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "dotenv -e .env.dev nodemon server.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js",
-    "serverDev": "dotenv -e .env.dev node ./server/server.js",
-    "serverRun": "dotenv -e .env node ./server/server.js"
+    "start": "cross-env NODE_ENV=production node server.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +27,7 @@
     "next": "12.0.10",
     "next-images": "^1.4.0",
     "next-redux-wrapper": "^4.0.1",
+    "nodemon": "^3.0.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
