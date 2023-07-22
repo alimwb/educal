@@ -1,1 +1,1 @@
-exports = require('./envVars');
+exports.envVars = require('./envVars');

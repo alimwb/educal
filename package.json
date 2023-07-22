@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "dotenv -e .env.dev nodemon server.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js"
+    "start": "dotenv -e .env.production node server.js"
   },
   "keywords": [],
   "author": "",
@@ -69,5 +69,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^20.4.4",
+    "@types/passport": "^1.0.12",
+    "@types/passport-jwt": "^3.0.9",
+    "@types/passport-local": "^1.0.35"
   }
 }

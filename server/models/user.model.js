@@ -8,6 +8,7 @@ const User = new Schema({
   password: { type: String },
   email: { type: String },
   profilePicUrl: { type: String },
+  join: { type: Date, default: Date.now() },
 });
 
 exports = mongoose.model('User', User);
