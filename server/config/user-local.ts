@@ -1,5 +1,5 @@
 import { Strategy } from "passport-local";
-import { UserService } from "../services";
+import { UserService } from '../services';
 import { BadRequestErr } from '../helpers/errors';
 
 const User = new UserService();
