@@ -1,6 +1,8 @@
 const { User } = require('../../models');
 
-exports = async function (email, options) {
+async function getUserByEmail(email, options) {
   return await User.findOne({ email })
     .select(options ? options.select : {});
 }
+
+export { getUserByEmail };

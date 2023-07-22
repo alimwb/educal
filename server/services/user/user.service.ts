@@ -1,10 +1,8 @@
-class UserSerivce {
-  constructor() {
-    
-  }
+import { getUserByEmail } from "./";
 
-  public getUserByEmail = require('./getUserByEmail');
+class UserService {
+  public getUserByEmail = getUserByEmail;
   userLogin = require('./userLogin');
 }
 
-export { UserSerivce };
+export { UserService };
