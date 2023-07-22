@@ -14,6 +14,24 @@
     "strictNullChecks": true,
     "useUnknownInCatchVariables": true,
     "resolveJsonModule": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
   },
-  "include": ["./server"],
+  "include": [
+    "./server"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
