@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 class CtaTwo extends Component {
 
-    render() {
+   render() {
 
-        return (
-        <section className="cta__area mb--100">
+      return (
+         <section className="cta__area mb--100">
             <div className="container">
                <div className="cta__inner cta__inner-2 blue-bg fix">
                   <div className="cta__shape">
@@ -20,16 +20,16 @@ class CtaTwo extends Component {
                      </div>
                      <div className="col-xxl-5 col-xl-5 col-lg-5 col-md-6">
                         <div className="cta__apps d-lg-flex justify-content-end p-relative z-index-1">
-                           <a target="_blank" href="https://www.apple.com/app-store/" className="mr-10"><i className="fab fa-apple"></i> Apple Store</a>
-                           <a target="_blank" href="https://play.google.com/store/apps" className="active"><i className="fab fa-google-play"></i> Play Store</a>
+                           <a target="_blank" href="https://www.apple.com/app-store/" className="mr-10"><i className="fab fa-apple"></i> Apple Store
+                              <a target="_blank" href="https://play.google.com/store/apps" className="active"><i className="fab fa-google-play"></i> Play Store
+                              </div>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
          </section>
-        );
-    }
+      );
+   }
 }
 
 export default CtaTwo;

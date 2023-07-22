@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 class About extends Component {
 
-    render() {
+   render() {
 
-        return (
-        <section className="about__area pt-90 pb-150">
+      return (
+         <section className="about__area pt-90 pb-150">
             <div className="container">
                <div className="row">
                   <div className="col-xxl-5 offset-xxl-1 col-xl-6 col-lg-6">
@@ -21,12 +21,12 @@ class About extends Component {
                            <img src="assets/img/about/about-banner.jpg" alt="img not found" />
                         </div>
                         <div className="about__student ml-270 mt--80">
-                           <Link href="/course-details"><a>
+                           <Link href="/course-details">
                               <img src="assets/img/about/student-4.jpg" alt="img not found" />
                               <img src="assets/img/about/student-3.jpg" alt="img not found" />
                               <img src="assets/img/about/student-2.jpg" alt="img not found" />
                               <img src="assets/img/about/student-1.jpg" alt="img not found" />
-                           </a></Link>
+                           </Link>
                            <p>Join over <span>4,000+</span> students</p>
                         </div>
                      </div>
@@ -44,14 +44,14 @@ class About extends Component {
                               <li className="d-flex align-items-center"><i className="fas fa-check"></i> Learn the latest skills</li>
                            </ul>
                         </div>
-                        <Link href="/contact"><a className="e-btn e-btn-border">Apply now</a></Link>
+                        <Link href="/contact" className="e-btn e-btn-border">Apply now</Link>
                      </div>
                   </div>
                </div>
             </div>
-         </section>
-        );
-    }
+         </section >
+      );
+   }
 }
 
 export default About;

@@ -37,9 +37,9 @@ class CourseSlider extends Component {
                         <SwiperSlide>
                             <div className="course__item course__item-3 swiper-slide white-bg mb-80 fix">
                                 <div className="course__thumb w-img p-relative fix">
-                                    <Link href="/course-details"><a><img src="assets/img/course/course-1.jpg" alt="img not found" /></a></Link>
+                                    <Link href="/course-details"><img src="assets/img/course/course-1.jpg" alt="img not found" /></Link>
                                     <div className="course__tag">
-                                        <Link href="/course-details"><a>Art & Design</a></Link>
+                                        <Link href="/course-details">Art & Design</Link>
                                     </div>
                                 </div>
                                 <div className="course__content">
@@ -51,12 +51,12 @@ class CourseSlider extends Component {
                                             <span><i className="fas fa-star"></i>4.5 (44)</span>
                                         </div>
                                     </div>
-                                    <h3 className="course__title"><Link href="/course-details"><a>Become a product Manager learn the skills & job.</a></Link></h3>
+                                    <h3 className="course__title"><Link href="/course-details">Become a product Manager learn the skills & job.</Link></h3>
                                     <div className="course__teacher d-flex align-items-center">
                                         <div className="course__teacher-thumb mr-15">
                                             <img src="assets/img/course/teacher/teacher-1.jpg" alt="img not found" />
                                         </div>
-                                        <h6><Link href="/instructor-details"><a>Jim Séchen</a></Link></h6>
+                                        <h6><Link href="/instructor-details">Jim Séchen</Link></h6>
                                     </div>
                                 </div>
                                 <div className="course__more d-flex justify-content-between align-items-center">
@@ -64,21 +64,21 @@ class CourseSlider extends Component {
                                         <span>Free</span>
                                     </div>
                                     <div className="course__btn">
-                                        <Link href="/course-details"><a className="link-btn">
+                                        <Link href="/course-details" className="link-btn">
                                             Know Details
                                             <i className="fas fa-arrow-right"></i>
                                             <i className="fas fa-arrow-right"></i>
-                                        </a></Link>
+                                        </Link>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
+                            </div >
+                        </SwiperSlide >
                         <SwiperSlide>
                             <div className="course__item course__item-3 swiper-slide white-bg mb-80 fix">
                                 <div className="course__thumb w-img p-relative fix">
-                                    <Link href="/course-details"><a><img src="assets/img/course/course-2.jpg" alt="img not found" /></a></Link>
+                                    <Link href="/course-details"><img src="assets/img/course/course-2.jpg" alt="img not found" /></Link>
                                     <div className="course__tag">
-                                        <Link href="/course-details"><a className="sky-blue">Mechanical</a></Link>
+                                        <Link href="/course-details" className="sky-blue">Mechanical</Link>
                                     </div>
                                 </div>
                                 <div className="course__content">
@@ -90,35 +90,35 @@ class CourseSlider extends Component {
                                             <span><i className="fas fa-star"></i>4.5 (44)</span>
                                         </div>
                                     </div>
-                                    <h3 className="course__title"><Link href="/course-details"><a>Fundamentals of music theory Learn new</a></Link></h3>
+                                    <h3 className="course__title"><Link href="/course-details">Fundamentals of music theory Learn new</Link></h3>
                                     <div className="course__teacher d-flex align-items-center">
                                         <div className="course__teacher-thumb mr-15">
                                             <img src="assets/img/course/teacher/teacher-2.jpg" alt="img not found" />
                                         </div>
-                                        <h6><Link href="/instructor-details"><a>Barry Tone</a></Link></h6>
+                                        <h6><Link href="/instructor-details">Barry Tone</Link></h6>
                                     </div>
-                                </div>
+                                </div >
                                 <div className="course__more d-flex justify-content-between align-items-center">
                                     <div className="course__status d-flex align-items-center">
                                         <span className="sky-blue">$32.00</span>
                                         <span className="old-price">$68.00</span>
                                     </div>
                                     <div className="course__btn">
-                                        <Link href="/course-details"><a className="link-btn">
+                                        <Link href="/course-details" className="link-btn">
                                             Know Details
                                             <i className="fas fa-arrow-right"></i>
                                             <i className="fas fa-arrow-right"></i>
-                                        </a></Link>
+                                        </Link>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
+                            </div >
+                        </SwiperSlide >
                         <SwiperSlide>
                             <div className="course__item course__item-3 swiper-slide white-bg mb-80 fix">
                                 <div className="course__thumb w-img p-relative fix">
-                                    <Link href="/course-details"><a><img src="assets/img/course/course-3.jpg" alt="img not found" /></a></Link>
+                                    <Link href="/course-details"><img src="assets/img/course/course-3.jpg" alt="img not found" /></Link>
                                     <div className="course__tag">
-                                        <Link href="/course-details"><a className="green">Development</a></Link>
+                                        <Link href="/course-details" className="green">Development</Link>
                                     </div>
                                 </div>
                                 <div className="course__content">
@@ -130,35 +130,35 @@ class CourseSlider extends Component {
                                             <span><i className="fas fa-star"></i>3.5 (55)</span>
                                         </div>
                                     </div>
-                                    <h3 className="course__title"><Link href="/course-details"><a>Strategy law and organization Foundation</a></Link></h3>
+                                    <h3 className="course__title"><Link href="/course-details">Strategy law and organization Foundation</Link></h3>
                                     <div className="course__teacher d-flex align-items-center">
                                         <div className="course__teacher-thumb mr-15">
                                             <img src="assets/img/course/teacher/teacher-3.jpg" alt="img not found" />
                                         </div>
-                                        <h6><Link href="/instructor-details"><a>Elon Gated</a></Link></h6>
+                                        <h6><Link href="/instructor-details">Elon Gated</Link></h6>
                                     </div>
-                                </div>
+                                </div >
                                 <div className="course__more d-flex justify-content-between align-items-center">
                                     <div className="course__status d-flex align-items-center">
                                         <span className="green">$46.00</span>
                                         <span className="old-price">$68.00</span>
                                     </div>
                                     <div className="course__btn">
-                                        <Link href="/course-details"><a className="link-btn">
+                                        <Link href="/course-details" className="link-btn">
                                             Know Details
                                             <i className="fas fa-arrow-right"></i>
                                             <i className="fas fa-arrow-right"></i>
-                                        </a></Link>
+                                        </Link>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
+                            </div >
+                        </SwiperSlide >
                         <SwiperSlide>
                             <div className="course__item course__item-3 swiper-slide white-bg mb-80 fix">
                                 <div className="course__thumb w-img p-relative fix">
-                                    <Link href="/course-details"><a><img src="assets/img/course/course-4.jpg" alt="img not found" /></a></Link>
+                                    <Link href="/course-details"><img src="assets/img/course/course-4.jpg" alt="img not found" /></Link>
                                     <div className="course__tag">
-                                        <Link href="/course-details"><a className="blue">Marketing</a></Link>
+                                        <Link href="/course-details" className="blue">Marketing</Link>
                                     </div>
                                 </div>
                                 <div className="course__content">
@@ -170,32 +170,32 @@ class CourseSlider extends Component {
                                             <span><i className="fas fa-star"></i>4.5 (42)</span>
                                         </div>
                                     </div>
-                                    <h3 className="course__title"><Link href="/course-details"><a>The business Intelligence analyst Course 2022</a></Link></h3>
+                                    <h3 className="course__title"><Link href="/course-details">The business Intelligence analyst Course 2022</Link></h3>
                                     <div className="course__teacher d-flex align-items-center">
                                         <div className="course__teacher-thumb mr-15">
                                             <img src="assets/img/course/teacher/teacher-4.jpg" alt="img not found" />
                                         </div>
-                                        <h6><Link href="/instructor-details"><a>Eleanor Fant</a></Link></h6>
+                                        <h6><Link href="/instructor-details">Eleanor Fant</Link></h6>
                                     </div>
-                                </div>
+                                </div >
                                 <div className="course__more d-flex justify-content-between align-items-center">
                                     <div className="course__status d-flex align-items-center">
                                         <span className="blue">$62.00</span>
                                         <span className="old-price">$97.00</span>
                                     </div>
                                     <div className="course__btn">
-                                        <Link href="/course-details"><a className="link-btn">
+                                        <Link href="/course-details" className="link-btn">
                                             Know Details
                                             <i className="fas fa-arrow-right"></i>
                                             <i className="fas fa-arrow-right"></i>
-                                        </a></Link>
+                                        </Link>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
-                </div>
-            </div>
+                            </div >
+                        </SwiperSlide >
+                    </Swiper >
+                </div >
+            </div >
         );
     }
 }

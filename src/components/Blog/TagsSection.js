@@ -12,17 +12,17 @@ class Tags extends Component {
                 </div>
                 <div className="sidebar__widget-content">
                     <div className="sidebar__tag">
-                        <Link href="/blog-details"><a>Art & Design</a></Link>
-                        <Link href="/blog-details"><a>Course</a></Link>
-                        <Link href="/blog-details"><a>Videos</a></Link>
-                        <Link href="/blog-details"><a>App</a></Link>
-                        <Link href="/blog-details"><a>Education</a></Link>
-                        <Link href="/blog-details"><a>Data Science</a></Link>
-                        <Link href="/blog-details"><a>Machine Learning</a></Link>
-                        <Link href="/blog-details"><a>Tips</a></Link>
-                    </div>
-                </div>
-            </div>
+                        <Link href="/blog-details">Art & Design</Link>
+                        <Link href="/blog-details">Course</Link>
+                        <Link href="/blog-details">Videos</Link>
+                        <Link href="/blog-details">App</Link >
+                        <Link href="/blog-details">Education</Link >
+                        <Link href="/blog-details">Data Science</Link >
+                        <Link href="/blog-details">Machine Learning</Link >
+                        <Link href="/blog-details">Tips</Link >
+                    </div >
+                </div >
+            </div >
         );
     }
 }

@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 class Teacher extends Component {
 
-    render() {
+   render() {
 
-        return (
-        <section className="teacher__area pt-115 pb-100">
+      return (
+         <section className="teacher__area pt-115 pb-100">
             <div className="container">
                <div className="row">
                   <div className="col-xxl-6 offset-xxl-3">
@@ -22,10 +22,10 @@ class Teacher extends Component {
                   <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div className="teacher__item text-center grey-bg-5 transition-3 mb-30">
                         <div className="teacher__thumb w-img fix">
-                           <Link href="/instructor-details"><a><img src="assets/img/teacher/teacger-1.jpg" alt="img not found" /></a></Link>
+                           <Link href="/instructor-details"><img src="assets/img/teacher/teacger-1.jpg" alt="img not found" /></Link>
                         </div>
                         <div className="teacher__content">
-                           <h3 className="teacher__title"><Link href="/instructor-details"><a>Lillian Walsh,</a></Link></h3> 
+                           <h3 className="teacher__title"><Link href="/instructor-details">Lillian Walsh,</Link></h3>
                            <span> CO Founder</span>
 
                            <div className="teacher__social">
@@ -41,10 +41,10 @@ class Teacher extends Component {
                   <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div className="teacher__item text-center grey-bg-5 transition-3 mb-30">
                         <div className="teacher__thumb w-img fix">
-                           <Link href="/instructor-details"><a><img src="assets/img/teacher/teacher-2.jpg" alt="img not found" /></a></Link>
+                           <Link href="/instructor-details"><img src="assets/img/teacher/teacher-2.jpg" alt="img not found" /></Link>
                         </div>
                         <div className="teacher__content">
-                           <h3 className="teacher__title"><Link href="/instructor-details"><a>Kelly Franklin,</a></Link></h3> 
+                           <h3 className="teacher__title"><Link href="/instructor-details">Kelly Franklin,</Link></h3>
                            <span>Desginer</span>
 
                            <div className="teacher__social">
@@ -56,14 +56,14 @@ class Teacher extends Component {
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div >
                   <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div className="teacher__item text-center grey-bg-5 transition-3 mb-30">
                         <div className="teacher__thumb w-img fix">
-                           <Link href="/instructor-details"><a><img src="assets/img/teacher/teacher-3.jpg" alt="img not found" /></a></Link>
+                           <Link href="/instructor-details"><img src="assets/img/teacher/teacher-3.jpg" alt="img not found" /></Link>
                         </div>
                         <div className="teacher__content">
-                           <h3 className="teacher__title"><Link href="/instructor-details"><a>Hilary Ouse,</a></Link></h3> 
+                           <h3 className="teacher__title"><Link href="/instructor-details">Hilary Ouse,</Link></h3>
                            <span>Markater</span>
 
                            <div className="teacher__social">
@@ -74,20 +74,20 @@ class Teacher extends Component {
                               </ul>
                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                     </div >
+                  </div >
+               </div >
                <div className="row">
                   <div className="col-xxl-12">
                      <div className="teacher__more text-center mt-30">
-                        <Link href="/contact"><a className="e-btn e-btn-border e-btn-5">Become an Instructor</a></Link>
+                        <Link href="/contact" className="e-btn e-btn-border e-btn-5">Become an Instructor</Link>
                      </div>
                   </div>
                </div>
-            </div>
-         </section>
-        );
-    }
+            </div >
+         </section >
+      );
+   }
 }
 
 export default Teacher;

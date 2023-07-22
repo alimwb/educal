@@ -13,11 +13,11 @@ class Category extends Component {
                 <div className="sidebar__widget-content">
                     <div className="sidebar__category">
                         <ul>
-                            <li><Link href="/blog"><a>Category</a></Link></li>
-                            <li><Link href="/blog"><a>Video & Tips  (4)</a></Link></li>
-                            <li><Link href="/blog"><a>Education  (8)</a></Link></li>
-                            <li><Link href="/blog"><a>Business  (5)</a></Link></li>
-                            <li><Link href="/blog"><a>UX Design  (3)</a></Link></li>
+                            <li><Link href="/blog">Category</Link></li>
+                            <li><Link href="/blog">Video & Tips  (4)</Link></li>
+                            <li><Link href="/blog">Education  (8)</Link></li>
+                            <li><Link href="/blog">Business  (5)</Link></li>
+                            <li><Link href="/blog">UX Design  (3)</Link></li>
                         </ul>
                     </div>
                 </div>

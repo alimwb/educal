@@ -11,13 +11,13 @@ class RelatedCourse extends Component {
                     <h3 className="course__sidebar-title">Related courses</h3>
                     <ul>
                         <li>
-                        <div className="course__sm d-flex align-items-center mb-30">
-                            <div className="course__sm-thumb mr-20">
-                                <Link href="/course-details"><a><img src="assets/img/course/sm/course-sm-1.jpg" alt="img not found"/></a></Link>
-                            </div>
-                            <div className="course__sm-content">
-                                <div className="course__sm-rating">
-                                    <ul>
+                            <div className="course__sm d-flex align-items-center mb-30">
+                                <div className="course__sm-thumb mr-20">
+                                    <Link href="/course-details"><img src="assets/img/course/sm/course-sm-1.jpg" alt="img not found" /></Link>
+                                </div>
+                                <div className="course__sm-content">
+                                    <div className="course__sm-rating">
+                                        <ul>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
@@ -25,21 +25,21 @@ class RelatedCourse extends Component {
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                     </ul>
                                 </div>
-                                <h5><Link href="/course-details"><a>Development</a></Link></h5>
-                                <div className="course__sm-price">
-                                    <span>$54.00</span>
+                                    <h5><Link href="/course-details">Development</Link></h5>
+                                    <div className="course__sm-price">
+                                        <span>$54.00</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </li>
                         <li>
-                        <div className="course__sm d-flex align-items-center mb-30">
-                            <div className="course__sm-thumb mr-20">
-                                <Link href="/course-details"><a><img src="assets/img/course/sm/course-sm-2.jpg" alt="img not found"/></a></Link>
-                            </div>
-                            <div className="course__sm-content">
-                                <div className="course__sm-rating">
-                                    <ul>
+                            <div className="course__sm d-flex align-items-center mb-30">
+                                <div className="course__sm-thumb mr-20">
+                                    <Link href="/course-details"><img src="assets/img/course/sm/course-sm-2.jpg" alt="img not found" /></Link>
+                                </div>
+                                <div className="course__sm-content">
+                                    <div className="course__sm-rating">
+                                        <ul>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
@@ -47,21 +47,21 @@ class RelatedCourse extends Component {
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                     </ul>
                                 </div>
-                                <h5><Link href="/course-details"><a>Data Science</a></Link></h5>
-                                <div className="course__sm-price">
-                                    <span>$72.00</span>
+                                    <h5><Link href="/course-details">Data Science</Link></h5>
+                                    <div className="course__sm-price">
+                                        <span>$72.00</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        </li>
+                            </div >
+                        </li >
                         <li>
-                        <div className="course__sm d-flex align-items-center mb-10">
-                            <div className="course__sm-thumb mr-20">
-                                <Link href="/course-details"><a><img src="assets/img/course/sm/course-sm-3.jpg" alt="img not found"/></a></Link>
-                            </div>
-                            <div className="course__sm-content">
-                                <div className="course__sm-rating">
-                                    <ul>
+                            <div className="course__sm d-flex align-items-center mb-10">
+                                <div className="course__sm-thumb mr-20">
+                                    <Link href="/course-details"><img src="assets/img/course/sm/course-sm-3.jpg" alt="img not found" /></Link>
+                                </div>
+                                <div className="course__sm-content">
+                                    <div className="course__sm-rating">
+                                        <ul>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
@@ -69,16 +69,16 @@ class RelatedCourse extends Component {
                                         <li><a href="#"> <i className="fas fa-star"></i> </a></li>
                                     </ul>
                                 </div>
-                                <h5><Link href="/course-details"><a>UX Design</a></Link></h5>
-                                <div className="course__sm-price">
-                                    <span>Free</span>
+                                    <h5><Link href="/course-details">UX Design</Link></h5>
+                                    <div className="course__sm-price">
+                                        <span>Free</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                            </div >
+                        </li >
+                    </ul >
+                </div >
+            </div >
         );
     }
 }

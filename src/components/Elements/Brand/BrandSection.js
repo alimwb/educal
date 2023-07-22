@@ -92,11 +92,11 @@ class Brand extends Component {
                     <div className="row">
                         <div className="col-xxl-12">
                             <div className="brand__more text-center">
-                                <Link href="/about"><a className="link-btn">
+                                <Link href="/about" className="link-btn">
                                     View all partners
                                     <i className="fas fa-arrow-right"></i>
                                     <i className="fas fa-arrow-right"></i>
-                                </a></Link>
+                                </Link>
                             </div>
                         </div>
                     </div>

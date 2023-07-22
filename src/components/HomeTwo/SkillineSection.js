@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 class Skilline extends Component {
 
-    render() {
+   render() {
 
-        return (
-        <section className="what__area pt-115">
+      return (
+         <section className="what__area pt-115">
             <div className="container">
                <div className="row">
                   <div className="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
@@ -24,7 +24,7 @@ class Skilline extends Component {
                         </div>
                         <div className="what__content p-absolute text-center">
                            <h3 className="what__title white-color">Mostly <br /> Online Learning</h3>
-                           <Link href="/contact"><a className="e-btn e-btn-border-2">Start a class today</a></Link>
+                           <Link href="/contact" className="e-btn e-btn-border-2">Start a class today</Link>
                         </div>
                      </div>
                   </div>
@@ -35,15 +35,15 @@ class Skilline extends Component {
                         </div>
                         <div className="what__content p-absolute text-center">
                            <h3 className="what__title white-color">Become <br /> an Instructor</h3>
-                           <Link href="/contact"><a className="e-btn e-btn-border-2">Start teaching</a></Link>
+                           <Link href="/contact" className="e-btn e-btn-border-2">Start teaching</Link>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </section>
-        );
-    }
+      );
+   }
 }
 
 export default Skilline;

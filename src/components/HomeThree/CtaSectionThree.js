@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class CtaThree extends Component {
 
-    render() {
+   render() {
 
-        return (
-        <section className="cta__area pb-150">
+      return (
+         <section className="cta__area pb-150">
             <div className="container">
                <div className="cta__inner-3 p-relative grey-bg-2 pt-75 pb-75 fix">
                   <div className="cta__shape-3">
@@ -40,8 +40,8 @@ class CtaThree extends Component {
                </div>
             </div>
          </section>
-        );
-    }
+      );
+   }
 }
 
 export default CtaThree;

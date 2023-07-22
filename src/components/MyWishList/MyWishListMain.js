@@ -4,13 +4,13 @@ import Link from 'next/link';
 
 
 class MyWishListMain extends Component {
-    
+
     render() {
         return (
             <main>
-	            {/* breadcrumb-start */}
-				<Breadcrumb pageTitle="My Wishlist" />
-				{/* breadcrumb-end */}
+                {/* breadcrumb-start */}
+                <Breadcrumb pageTitle="My Wishlist" />
+                {/* breadcrumb-end */}
 
                 <section className="cart-area pt-100 pb-100">
                     <div className="container">
@@ -28,24 +28,24 @@ class MyWishListMain extends Component {
                                                     <th className="product-subtotal">Total</th>
                                                     <th className="product-remove">Remove</th>
                                                 </tr>
-                                                </thead>
-                                                <tbody>
+                                            </thead>
+                                            <tbody>
                                                 <tr>
-                                                    <td className="product-thumbnail"><Link href="/course-details"><a><img src="assets/img/course/sm/cart-1.jpg" alt="img not found"/></a></Link></td>
-                                                    <td className="product-name"><Link href="/course-details"><a>Fundamentals of music theory Learn new</a></Link></td>
+                                                    <td className="product-thumbnail"><Link href="/course-details"><img src="assets/img/course/sm/cart-1.jpg" alt="img not found" /></Link></td>
+                                                    <td className="product-name"><Link href="/course-details">Fundamentals of music theory Learn new</Link></td>
                                                     <td className="product-price"><span className="amount">$130.00</span></td>
                                                     <td className="product-quantity">
-                                                            <button className="e-btn e-btn-border" type="submit">Add TO Cart</button>
+                                                        <button className="e-btn e-btn-border" type="submit">Add TO Cart</button>
                                                     </td>
                                                     <td className="product-subtotal"><span className="amount">$130.00</span></td>
                                                     <td className="product-remove"><a href="#"><i className="fas fa-times"></i></a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="product-thumbnail"><Link href="/course-details"><a><img src="assets/img/course/sm/cart-2.jpg" alt="img not found"/></a></Link></td>
-                                                    <td className="product-name"><Link href="/course-details"><a>Strategy law and organization Foundation</a></Link></td>
+                                                    <td className="product-thumbnail"><Link href="/course-details"><img src="assets/img/course/sm/cart-2.jpg" alt="img not found" /></Link></td>
+                                                    <td className="product-name"><Link href="/course-details">Strategy law and organization Foundation</Link></td>
                                                     <td className="product-price"><span className="amount">$120.50</span></td>
                                                     <td className="product-quantity">
-                                                            <button className="e-btn e-btn-border" type="submit">Add TO Cart</button>
+                                                        <button className="e-btn e-btn-border" type="submit">Add TO Cart</button>
                                                     </td>
                                                     <td className="product-subtotal"><span className="amount">$120.50</span></td>
                                                     <td className="product-remove"><a href="#"><i className="fas fa-times"></i></a></td>
@@ -55,11 +55,11 @@ class MyWishListMain extends Component {
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </section>
+                        </div >
+                    </div >
+                </section >
 
-        	</main>
+            </main >
         );
     }
 }

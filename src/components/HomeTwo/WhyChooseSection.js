@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 class WhyChoose extends Component {
 
-    render() {
+   render() {
 
-        return (
-        <section className="why__area pt-125">
+      return (
+         <section className="why__area pt-125">
             <div className="container">
                <div className="row align-items-center">
                   <div className="col-xxl-5 offset-xxl-1 col-xl-5 offset-xl-1 col-lg-6 col-md-8">
@@ -17,13 +17,13 @@ class WhyChoose extends Component {
                            <p>Oxford chimney pot Eaton faff about blower blatant brilliant, bubble and squeak he legged it Charles bonnet arse at public school bamboozled.</p>
                         </div>
                         <div className="why__btn">
-                           <Link href="/contact"><a className="e-btn e-btn-3 mr-30">Join for Free</a></Link>
+                           <Link href="/contact" className="e-btn e-btn-3 mr-30">Join for Free</Link>
 
-                           <Link href="/about"><a className="link-btn">
-                              Learn More 
+                           <Link href="/about" className="link-btn">
+                              Learn More
                               <i className="fas fa-arrow-right"></i>
                               <i className="fas fa-arrow-right"></i>
-                           </a></Link>
+                           </Link>
                         </div>
                      </div>
                   </div>
@@ -39,8 +39,8 @@ class WhyChoose extends Component {
                </div>
             </div>
          </section>
-        );
-    }
+      );
+   }
 }
 
 export default WhyChoose;

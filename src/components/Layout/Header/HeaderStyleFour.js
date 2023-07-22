@@ -44,14 +44,14 @@ const HeaderFour = () => {
                                 <div className="header__left d-flex">
                                     <div className="logo">
                                         <Link href="/">
-                                            <a><img src="assets/img/logo/logo.png" alt="logo" /></a>
+                                            <img src="assets/img/logo/logo.png" alt="logo" />
                                         </Link>
                                     </div>
                                     <div className="header__category d-none d-lg-block">
                                         <nav>
                                             <ul>
                                                 <li>
-                                                    <Link href="/course-grid"><a className="cat-menu d-flex align-items-center">
+                                                    <Link href="/course-grid" className="cat-menu d-flex align-items-center">
                                                         <div className="cat-dot-icon d-inline-block">
                                                             <svg viewBox="0 0 276.2 276.2">
                                                                 <g>
@@ -70,71 +70,71 @@ const HeaderFour = () => {
                                                             </svg>
                                                         </div>
                                                         <span>Category</span>
-                                                    </a>
+
                                                     </Link>
                                                     <ul className="cat-submenu">
-                                                        <li><Link href="/course-grid"><a>English Learning</a></Link></li>
-                                                        <li><Link href="/course-grid"><a>Web Development</a></Link></li>
-                                                        <li><Link href="/course-grid"><a>Logo Design</a></Link></li>
-                                                        <li><Link href="/course-grid"><a>Motion Graphics</a></Link></li>
-                                                        <li><Link href="/course-grid"><a>Video Edition</a></Link></li>
+                                                        <li><Link href="/course-grid">English Learning</Link></li>
+                                                        <li><Link href="/course-grid">Web Development</Link></li>
+                                                        <li><Link href="/course-grid">Logo Design</Link></li>
+                                                        <li><Link href="/course-grid">Motion Graphics</Link></li>
+                                                        <li><Link href="/course-grid">Video Edition</Link></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </nav>
                                     </div>
-                                </div>
-                            </div>
+                                </div >
+                            </div >
                             <div className="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
                                 <div className="header__right d-flex justify-content-end align-items-center">
                                     <div className="main-menu main-menu-2 d-none d-xl-block">
                                         <nav id="mobile-menu">
                                             <ul>
                                                 <li className="has-dropdown">
-                                                    <Link href="/"><a>Home</a></Link>
+                                                    <Link href="/">Home</Link>
                                                     <ul className="submenu">
-                                                        <li><Link href="/"><a>Home Style 1</a></Link></li>
-                                                        <li><Link href="/home-2"><a>Home Style 2</a></Link></li>
-                                                        <li><Link href="/home-3"><a>Home Style 3</a></Link></li>
+                                                        <li><Link href="/">Home Style 1</Link></li>
+                                                        <li><Link href="/home-2">Home Style 2</Link></li>
+                                                        <li><Link href="/home-3">Home Style 3</Link></li>
                                                     </ul>
                                                 </li>
                                                 <li className="has-dropdown">
-                                                    <Link href="/course-grid"><a>Courses</a></Link>
+                                                    <Link href="/course-grid">Courses</Link>
                                                     <ul className="submenu">
-                                                        <li><Link href="/course-grid"><a>Courses</a></Link></li>
-                                                        <li><Link href="/course-list"><a>Courses List</a></Link></li>
-                                                        <li><Link href="/course-sidebar"><a>Courses Sidebar</a></Link></li>
-                                                        <li><Link href="/course-details"><a>Courses Details</a></Link></li>
-                                                    </ul>
-                                                </li>
+                                                        <li><Link href="/course-grid">Courses</Link></li>
+                                                        <li><Link href="/course-list">Courses List</Link></li>
+                                                        <li><Link href="/course-sidebar">Courses Sidebar</Link></li >
+                                                        <li><Link href="/course-details">Courses Details</Link></li >
+                                                    </ul >
+                                                </li >
                                                 <li className="has-dropdown">
-                                                    <Link href="/blog"><a>Blog</a></Link>
+                                                    <Link href="/blog">Blog</Link>
                                                     <ul className="submenu">
-                                                        <li><Link href="/blog"><a>Blog</a></Link></li>
-                                                        <li><Link href="/blog-details"><a>Blog Details</a></Link></li>
-                                                    </ul>
-                                                </li>
+                                                        <li><Link href="/blog">Blog</Link></li>
+                                                        <li><Link href="/blog-details">Blog Details</Link></li >
+                                                    </ul >
+                                                </li >
                                                 <li className="has-dropdown">
-                                                    <Link href="/course-grid"><a>Pages</a></Link>
+                                                    <Link href="/course-grid">Pages</Link>
                                                     <ul className="submenu">
-                                                        <li><Link href="/about"><a>About</a></Link></li>
-                                                        <li><Link href="/instructor"><a>Instructor</a></Link></li>
-                                                        <li><Link href="/instructor-details"><a>Instructor Details</a></Link></li>
-                                                        <li><Link href="/event-details"><a>Event Details</a></Link></li>
-                                                        <li><Link href="/cart"><a>My Cart</a></Link></li>
-                                                        <li><Link href="/wishlist"><a>My Wishlist</a></Link></li>
-                                                        <li><Link href="/checkout"><a>Checkout</a></Link></li>
-                                                        <li><Link href="/sign-in"><a>Sign In</a></Link></li>
-                                                        <li><Link href="/sign-up"><a>Sign Up</a></Link></li>
-                                                        <li><Link href="/error"><a>Error</a></Link></li>
-                                                    </ul>
-                                                </li>
-                                                <li><Link href="/contact"><a>Contact</a></Link></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
+                                                        <li><Link href="/about">About</Link></li>
+                                                        <li><Link href="/instructor">Instructor</Link></li >
+                                                        <li><Link href="/instructor-details">Instructor Details</Link></li >
+                                                        <li><Link href="/event-details">Event Details</Link></li >
+                                                        <li><Link href="/cart">My Cart</Link></li >
+                                                        <li><Link href="/wishlist">My Wishlist</Link></li >
+                                                        <li><Link href="/checkout">Checkout</Link></li >
+                                                        <li><Link href="/sign-in">Sign In</Link></li >
+                                                        <li><Link href="/sign-up">Sign Up</Link></li >
+                                                        <li><Link href="/error">Error</Link></li >
+                                                    </ul >
+                                                </li >
+                                                <li><Link href="/contact">Contact</Link></li >
+                                            </ul >
+                                        </nav >
+                                    </div >
                                     <div className="header__btn header__btn-2 ml-50 d-none d-sm-block">
-                                        <Link href="/sign-up"><a className="e-btn">Sign Up</a></Link>
+                                        <Link href="/sign-up" className="e-btn">Sign Up</Link>
                                     </div>
                                     <div className="sidebar__menu d-xl-none">
                                         <div className="sidebar-toggle-btn ml-30" id="sidebar-toggle" onClick={() => { setMenuOpen(!menuOpen) }}>
@@ -143,16 +143,16 @@ const HeaderFour = () => {
                                             <span className="line"></span>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                </div >
+                            </div >
+                        </div >
+                    </div >
+                </div >
 
                 <BurgerMenus menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                 <div onClick={() => setMenuOpen(false)} className={menuOpen ? "body-overlay show" : "body-overlay"}></div>
-            </header>
-        </React.Fragment>
+            </header >
+        </React.Fragment >
     );
 }
 

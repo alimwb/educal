@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 
-const HeaderSearch = ({setSearchOpen, searchOpen}) => {
+const HeaderSearch = ({ setSearchOpen, searchOpen }) => {
 
-      const router = useRouter()
-      const [path, setPath] = useState("")
-      useEffect(() => {
+    const router = useRouter()
+    const [path, setPath] = useState("")
+    useEffect(() => {
         setPath(router.pathname)
-      }, [router])
+    }, [router])
 
-      return (
-    
-        <div className={searchOpen ? "header__search-3 search-opened": "header__search-3"}>
+    return (
+
+        <div className={searchOpen ? "header__search-3 search-opened" : "header__search-3"}>
             <div className="container">
                 <div className="row">
                     <div className="col-xl-12">
@@ -26,25 +26,25 @@ const HeaderSearch = ({setSearchOpen, searchOpen}) => {
                                 </div>
                                 <div className="header__search-3-categories">
                                     <ul className="search-category">
-                                        <li><Link href="/course-grid"><a>All Courses</a></Link></li>
-                                        <li><Link href="/instructor"><a>Instructor</a></Link></li>
-                                        <li><Link href="/event-details"><a>Event</a></Link></li>
-                                        <li><Link href="/cart"><a>My Cart</a></Link></li>
-                                        <li><Link href="/blog"><a>Blog</a></Link></li>
-                                        <li><Link href="/contact"><a>Contact</a></Link></li>
+                                        <li><Link href="/course-grid">All Courses</Link></li>
+                                        <li><Link href="/instructor">Instructor</Link></li>
+                                        <li><Link href="/event-details">Event</Link></li>
+                                        <li><Link href="/cart">My Cart</Link></li>
+                                        <li><Link href="/blog">Blog</Link></li>
+                                        <li><Link href="/contact">Contact</Link></li>
                                     </ul>
                                 </div>
                                 <div className="header__search-3-input p-relative">
-                                    <input type="text" placeholder="Search for products... "/>
+                                    <input type="text" placeholder="Search for products... " />
                                     <button type="submit"><i className="fas fa-search"></i></button>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-          
+                            </form >
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+
     )
 }
 

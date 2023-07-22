@@ -14,35 +14,35 @@ class RecentPost extends Component {
                     <div className="rc__post-wrapper">
                         <div className="rc__post d-flex align-items-center">
                             <div className="rc__thumb mr-20">
-                            <Link href="/blog-details"><a><img src="assets/img/blog/sm/blog-sm-1.jpg" alt="img not found"/></a></Link>
+                            <Link href="/blog-details"><img src="assets/img/blog/sm/blog-sm-1.jpg" alt="img not found"/></Link>
                             </div>
                             <div className="rc__content">
                             <div className="rc__meta">
                                 <span>October 15, 2021</span>
                             </div>
-                                <h6 className="rc__title"><Link href="/blog-details"><a>The Importance  Intrinsic Motivation.</a></Link></h6>
+                                <h6 className="rc__title"><Link href="/blog-details">The Importance  Intrinsic Motivation.</Link></h6>
                             </div>
                         </div>
                         <div className="rc__post d-flex align-items-center">
                             <div className="rc__thumb mr-20">
-                                <Link href="/blog-details"><a><img src="assets/img/blog/sm/blog-sm-2.jpg" alt="img not found"/></a></Link>
+                                <Link href="/blog-details"><img src="assets/img/blog/sm/blog-sm-2.jpg" alt="img not found"/></Link>
                             </div>
                             <div className="rc__content">
                             <div className="rc__meta">
                                 <span>March 26, 2021</span>
                             </div>
-                                <h6 className="rc__title"><Link href="/blog-details"><a>A Better Alternative To Grading Student.</a></Link></h6>
+                                <h6 className="rc__title"><Link href="/blog-details">A Better Alternative To Grading Student.</Link></h6>
                             </div>
                         </div>
                         <div className="rc__post d-flex align-items-center">
                             <div className="rc__thumb mr-20">
-                                <Link href="/blog-details"><a><img src="assets/img/blog/sm/blog-sm-3.jpg" alt="img not found"/></a></Link>
+                                <Link href="/blog-details"><img src="assets/img/blog/sm/blog-sm-3.jpg" alt="img not found"/></Link>
                             </div>
                             <div className="rc__content">
                             <div className="rc__meta">
                                 <span>October 15, 2021</span>
                             </div>
-                                <h6 className="rc__title"><Link href="/blog-details"><a>Strategic Social Media & Evolution of Visual</a></Link></h6>
+                                <h6 className="rc__title"><Link href="/blog-details">Strategic Social Media & Evolution of Visual</Link></h6>
                             </div>
                         </div>
                     </div>
