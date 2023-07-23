@@ -1,1 +1,0 @@
-exports.envVars = require('./envVars');
