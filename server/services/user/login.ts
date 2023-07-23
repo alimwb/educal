@@ -1,7 +1,7 @@
 import { compare } from "bcryptjs";
 import { UserService } from "./user.service";
 
-async function userLogin(this: UserService,email: string, password: string) {
+async function login(this: UserService,email: string, password: string) {
   const user = await this.getUserByEmail(email);
 
   if (user === null) {
@@ -17,4 +17,4 @@ async function userLogin(this: UserService,email: string, password: string) {
   return user;
 }
 
-export { userLogin };
+export { login };

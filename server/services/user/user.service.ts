@@ -1,8 +1,8 @@
-import { getUserByEmail, userLogin } from "./";
+import { getUserByEmail, login } from "./";
 
 class UserService {
   public getUserByEmail = getUserByEmail;
-  public userLogin = userLogin;
+  public login = login;
 }
 
 export { UserService };
