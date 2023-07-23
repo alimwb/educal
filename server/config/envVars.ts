@@ -11,6 +11,7 @@ const vars = {
   s3AccessKey: process.env.S3_ACCESS_KEY as string,
   s3Bucket: process.env.S3_BUCKET as string,
   s3Endpoint: process.env.S3_ENDPOINT as string,
+  version: process.env.VERSION as string,
 }
 
 export { vars as envVars };
