@@ -1,23 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
-import { ValidationError } from 'joi';
+import { ValidationError } from 'yup';
 import { MulterError } from 'multer';
-import {
-  errorLogger,
-  ServerErr,
-  NotFoundErr,
-  BadRequestErr,
-  UnauthorizedErr,
-  ForbiddenErr,
-  ApiKeyErr,
-} from './';
+import { errorLogger, NotFoundErr, ServerErr, BadRequestErr, UnauthorizedErr, ForbiddenErr, ApiKeyErr } from './';
 
-const handler = (
-  err: Error,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  let errors: Error[] = [];
+const handler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+  let errors: { code: number, message: string}[] = [];
   let resObj = {
     errors,
     headers: req.headers,
@@ -30,53 +17,65 @@ const handler = (
   // errors array
   if (res.statusCode && res.statusCode != 200) {
     resObj.errors.push({
-      name: err.name,
+      code: res.statusCode,
       message: err.message,
     });
   }
   // validaion err
   else if (err instanceof ValidationError) {
     res.status(400);
-    resObj.errors = err.details.map((errObj) => {
+    resObj.errors = err.errors.map((msg) => {
       return {
-        name: 'InputValidationError',
-        message: errObj.message,
-      };
+        code: res.statusCode,
+        message: msg
+      }
     });
-  } else if (err instanceof MulterError) {
+  }
+  // file error
+  else if (err instanceof MulterError) {
     res.status(400);
     resObj.errors.push({
-      name: 'FileError',
+      code: res.statusCode,
       message: err.message,
     });
-  } else if (err instanceof ApiKeyErr) {
+  }
+  // [delimiter for better readability]
+  else if (err instanceof ApiKeyErr) {
     res.status(401);
     resObj.errors.push({
-      name: err.name,
+      code: res.statusCode,
       message: err.message,
     });
-  } else if (err instanceof ForbiddenErr) {
+  }
+  // [delimiter for better readability]
+  else if (err instanceof ForbiddenErr) {
     res.status(403);
     resObj.errors.push({
-      name: err.name,
+      code: res.statusCode,
       message: err.message,
     });
-  } else if (err instanceof NotFoundErr) {
+  }
+  // [delimiter for better readability]
+  else if (err instanceof NotFoundErr) {
     res.status(404);
     resObj.errors.push({
-      name: err.name,
+      code: res.statusCode,
       message: err.message,
     });
-  } else if (err instanceof UnauthorizedErr) {
+  }
+  // [delimiter for better readability]
+  else if (err instanceof UnauthorizedErr) {
     res.status(401);
     resObj.errors.push({
-      name: err.name,
+      code: res.statusCode,
       message: err.message,
     });
-  } else if (err instanceof BadRequestErr) {
+  }
+  // [delimiter for better readability]
+  else if (err instanceof BadRequestErr) {
     res.status(400);
     resObj.errors.push({
-      name: err.name,
+      code: res.statusCode,
       message: err.message,
     });
   }
@@ -97,4 +96,4 @@ const handler = (
   res.json(resObj);
 };
 
-export { handler as errorHandler};
+export { handler as errorHandler };
