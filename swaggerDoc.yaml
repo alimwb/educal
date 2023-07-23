@@ -1,0 +1,111 @@
+openapi: '3.0.0'
+info:
+  title: Educal
+  version: '1.0'
+servers:
+  - url: http://localhost:3000/api/v1
+paths:
+  /auth/signup:
+    post:
+      tags: [Auth]
+      summary: User signup
+      description: Use this route for user registering. After signup, the user's authorization token will be kept and used by server.
+      requestBody:
+        description: All fields must be included.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: user@example.com
+                password:
+                  type: string
+                  description: Must contain at lesat 8 characters and be the same as "passwordConfirm" field.
+                  example: 12345678
+                passwordConfirm:
+                  type: string
+                  description: Must be the same as "password" field.
+                  example: 12345678
+
+      responses:
+        200:
+          description: The user data is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A message to show to the user when the request is successful.
+                    example: خوش آمدید
+                  user:
+                    $ref: '#/components/schemas/user'
+
+        400:
+          $ref: '#/components/responses/res400'
+
+components:
+  responses:
+    res400:
+      description: The inputs or parameters provided by client are not valid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+
+  schemas:
+    error:
+      type: array
+      items:
+        type: object
+        properties:
+          code:
+            type: number
+            description: HTTP error code
+          message:
+            type: string
+            description: Error reason
+          headers:
+            type: object
+            description: Headers sent from client
+          reqBody:
+            type: object
+            description: Request body sent from client
+          parameters:
+            type: object
+            description: Parameters sent from client
+    user:
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: User's first name.
+          example: Hadi
+        lastName:
+          type: string
+          description: User's last name.
+          example: Moshtaghi
+        tel:
+          type: string
+          description: User's phone number.
+          example: 09011234567
+        nationalId:
+          type: string
+          description: User's national Id.
+          example: 0123456789
+        email:
+          type: string
+          description: User's valid email.
+          example: user@example.com
+        profilePicUrl:
+          type: string
+          description: Relative address of profile pic.
+          example: /path/to/image.jpg
+        joined:
+          type: number
+          description: Timestamp of the time when user first joined.
+          example: 169832923821
