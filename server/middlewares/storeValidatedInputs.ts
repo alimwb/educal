@@ -1,9 +1,20 @@
 import { Request, Response } from "express";
-import { ObjectSchema } from 'joi';
+import { ObjectSchema } from 'yup';
+import { validInputs } from "../types/types";
 
-function middleware(validator: ObjectSchema) {
+/**
+ * This middleware validates the request body againt a given validator.
+ * The validated body is stored at `res.locals.validBody` and the original
+ * request body is left untouched for further actions.
+ * 
+ * @param validator the input validator
+ * @returns an async middleware to do the validation of `req.query`
+ */
+
+
+function middleware(validator: ObjectSchema<validInputs>) {
   return async (req: Request, res: Response) => {
-    let validatedBody = await validator.validateAsync(req.body);
+    let validatedBody = await validator.validate(req.body);
     res.locals.validBody = validatedBody;
   }
 }
