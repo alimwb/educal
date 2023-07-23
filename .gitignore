@@ -47,3 +47,5 @@ yarn.lock
 .vercel
 
 prisma
+
+built
