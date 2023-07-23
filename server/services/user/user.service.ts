@@ -1,8 +1,8 @@
-import { getUserByEmail } from "./";
+import { getUserByEmail, userLogin } from "./";
 
 class UserService {
   public getUserByEmail = getUserByEmail;
-  userLogin = require('./userLogin');
+  public userLogin = userLogin;
 }
 
 export { UserService };
