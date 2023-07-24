@@ -8,6 +8,8 @@ const { authRouter } = require('./built/routers')
 const { createNotFoundErr } = require('./built/helpers/errors/createNotFoundErr');
 const { errorHandler } = require('./built/helpers/errors/errorHandler');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 // const port = parseInt(process.env.PORT, 10) || 3000
 const port = envVars.port;
@@ -23,6 +25,13 @@ app.prepare().then(async () => {
   docFile = null; // memory saving
 
   await mongoose.connect(envVars.dbUri);
+
+  server.use(express.json());
+  server.use(express.urlencoded({ extended: false }));
+  server.use(cookieParser(envVars.cookieSecert));
+  server.use(cors({
+    origin: envVars.environment === 'dev' ? 'http://localhost:3000' : '',
+  }));
 
   server.use(`/api/${envVars.version}/docs`, swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
