@@ -4,6 +4,7 @@ import { signupInpValidator } from "../../validators/auth/signup";
 import { UserService } from "../../services";
 import { sign } from "jsonwebtoken";
 import { envVars } from "../../config";
+import { BadRequestErr } from "../../helpers/errors";
 
 /**
  * 1. Inputs are validated
@@ -16,6 +17,12 @@ const controller = [
   middlewareWrapper(storeValidatedInputs(signupInpValidator)),
 
   middlewareWrapper(async (req: Request, res: Response) => {
+    const isEmailDuplicate = await UserService.checkDuplicateEmail(res.locals.validBody.email);
+
+    if (isEmailDuplicate) {
+      throw new BadRequestErr('ایمیل قبلا ثبت شده است');
+    }
+
     const user = await UserService.signup(res.locals.validBody);
     const jwt = sign(
       { id: user.id, email: user.email },
@@ -29,7 +36,7 @@ const controller = [
       secure: envVars.environment === 'production',
     });
 
-    const { password, ...userInfo } = user;
+    const { password, ...userInfo } = user.toObject();
     
     res.json(userInfo);
   }),
