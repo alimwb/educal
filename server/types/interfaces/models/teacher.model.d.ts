@@ -2,12 +2,12 @@ interface teacherModel {
   firstName: string;
   lastName: string;
   role: string;
-  profilePicUrl?: string;
+  profilePicUrl?: string | null;
   tel: string;
   email: string;
-  fullAddress?: string;
+  fullAddress?: string | null;
   password: string;
-  creditCardNum?: string;
+  creditCardNum?: string | null;
 }
 
 export { teacherModel };

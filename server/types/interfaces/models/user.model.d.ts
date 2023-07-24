@@ -1,11 +1,11 @@
 interface userModel {
-  firstName?: string;
-  lastName?: string;
-  tel?: string;
-  nationalId?: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  tel?: string | null;
+  nationalId?: string | null;
   email: string;
   password: string;
-  profilePicUrl?: string;
+  profilePicUrl?: string | null;
   joined: Date;
 }
 

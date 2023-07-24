@@ -9,9 +9,9 @@ const Admin = mongoose.model('Admin', new Schema<adminModel>({
   password: { type: String, required: true },
   tel: { type: String, required: true },
   email: { type: String, required: true },
-  fullAddress: { type: String },
-  nationalId: { type: String },
-  profilePicUrl: { type: String },
+  fullAddress: { type: String, default: null },
+  nationalId: { type: String, default: null },
+  profilePicUrl: { type: String, default: null },
 }));
 
 export { Admin };

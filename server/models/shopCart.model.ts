@@ -6,6 +6,7 @@ const ShopCart = mongoose.model('ShopCart', new Schema<shopCartModel>({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   courses: [{ type: Schema.Types.ObjectId, required: true }],
   totalPrice: { type: Schema.Types.Decimal128, required: true },
+  isPaid: { type: Boolean, default: false },
 }));
 
 export { ShopCart };

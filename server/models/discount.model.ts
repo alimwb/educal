@@ -7,8 +7,8 @@ const Discount = mongoose.model('Discount', new Schema<discountModel>({
   course: { type: Schema.Types.ObjectId, ref: 'Course', required: true },
   code: { type: String, required: true },
   amount: { type: Number, required: true },
-  upLimit: { type: Schema.Types.Decimal128 },
-  expire: { type: Date },
+  upLimit: { type: Schema.Types.Decimal128, default: null },
+  expire: { type: Date, default: null },
 }));
 
 export { Discount };

@@ -5,6 +5,7 @@ interface shopCartModel {
   user: Types.ObjectId;
   courses: Types.DocumentArray<courseModel>;
   totalPrice: Types.Decimal128;
+  isPaid: boolean;
 }
 
 export { shopCartModel };

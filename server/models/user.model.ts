@@ -3,13 +3,13 @@ import { userModel } from '../types/interfaces/models';
 
 const { Schema } = mongoose;
 const User = mongoose.model('User', new Schema<userModel>({
-  firstName: { type: String },
-  lastName: { type: String },
-  tel: { type: String },
-  nationalId: { type: String },
+  firstName: { type: String, default: null },
+  lastName: { type: String, default: null },
+  tel: { type: String, default: null },
+  nationalId: { type: String, default: null },
   password: { type: String, required: true },
   email: { type: String, required: true },
-  profilePicUrl: { type: String },
+  profilePicUrl: { type: String, default: null },
   joined: { type: Date, default: Date.now(), required: true },
 }));
 

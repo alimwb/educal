@@ -5,8 +5,8 @@ interface discountModel {
   course: Types.ObjectId // reference to Course collection
   code: string;
   amount: number;
-  upLimit?: Types.Decimal128;
-  expire?: Date;
+  upLimit?: Types.Decimal128 | null;
+  expire?: Date | null;
 }
 
 export { discountModel };

@@ -6,7 +6,7 @@ interface courseModel {
   skillLevel: 'allLevels' | 'beginner' | 'intermediate' | 'expert';
   teacher: Types.ObjectId; // reference to Teacher collection
   lastUpdate: Date;
-  overview?: string;
+  overview?: string | null;
 }
 
 export { courseModel };

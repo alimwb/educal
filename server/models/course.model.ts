@@ -8,7 +8,7 @@ const Course = mongoose.model('Course', new Schema<courseModel>({
   skillLevel: { type: String, required: true, enum: [ 'allLevels', 'beginner', 'intermediate', 'expert'] },
   teacher: { type: Schema.Types.ObjectId, ref: 'Teacher', required: true },
   lastUpdate: { type: Date, default: Date.now(), required: true },
-  overview: { type: String },
+  overview: { type: String, default: null },
 }));
 
 export { Course };
