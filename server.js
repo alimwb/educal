@@ -7,6 +7,7 @@ const { envVars } = require('./built/config/envVars');
 const { authRouter } = require('./built/routers')
 const { createNotFoundErr } = require('./built/helpers/errors/createNotFoundErr');
 const { errorHandler } = require('./built/helpers/errors/errorHandler');
+const mongoose = require('mongoose');
 
 // const port = parseInt(process.env.PORT, 10) || 3000
 const port = envVars.port;
@@ -15,12 +16,14 @@ const dev = '‍'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-app.prepare().then(() => {
+app.prepare().then(async () => {
   let docFile = fs.readFileSync('./swaggerDoc.yaml', 'utf-8');
   const swaggerDoc = YAML.parse(docFile);
   const server = express()
   docFile = null; // memory saving
-  
+
+  await mongoose.connect(envVars.dbUri);
+
   server.use(`/api/${envVars.version}/docs`, swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
   server.use(`/api/${envVars.version}/auth`, authRouter);
