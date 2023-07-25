@@ -6,6 +6,14 @@ import { UserService } from '../../services';
 import { userModel } from '../../types/interfaces/models';
 import { envVars } from '../../config';
 
+/**
+ * 1. validate client inputs
+ * 2. authenticate using provided credentials
+ * 3. generate a jwt for user
+ * 4. set the authToken cookie (only visible to server)
+ * 5. send the data to the client
+ */
+
 const controller = [
   middlewareWrapper(storeValidatedInputs(loginInpValidator)),
 
