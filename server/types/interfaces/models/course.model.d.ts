@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 
 interface courseModel {
+  _id: string;
   category: string;
   price: Types.Decimal128;
   skillLevel: 'allLevels' | 'beginner' | 'intermediate' | 'expert';

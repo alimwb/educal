@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 
-interface ratingModel { 
+interface ratingModel {
+  _id: string;
   user: Types.ObjectId;
   course: Types.ObjectId;
   rate: number;
