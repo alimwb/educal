@@ -1,6 +1,6 @@
 import { User } from '../../models';
 import { hash } from 'bcryptjs';
-import { encrypt } from '../../helpers';
+import { encrypt, decrypt } from '../../helpers';
 import { signupInp } from '../../types/interfaces/inputs';
 
 /**
@@ -18,6 +18,10 @@ async function signup(data: signupInp) {
     password: hashedPass,
     joined: Date.now(),
   });
+
+  user.email = decrypt(user.email) as string;
+  user.tel = decrypt(user.tel);
+  user.nationalId = decrypt(user.nationalId);
 
   await user.save();
   return user;
