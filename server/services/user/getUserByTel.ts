@@ -2,12 +2,12 @@ import { User } from "../../models";
 import { encrypt, decrypt } from "../../helpers/cipherFunc";
 import { NotFoundErr } from "../../helpers/errors";
 
-async function getUserByEmail(email: string) {
-  const encryptedEmail = encrypt(email);
-  const user = await User.findOne({ email: encryptedEmail });
+async function getUserByTel(tel: string) {
+  const encryptedTel = encrypt(tel);
+  const user = await User.findOne({ tel: encryptedTel });
 
   if (user === null) {
-    throw new NotFoundErr('کاربری با این ایمیل پیدا نشد');
+    throw new NotFoundErr('کاربری با این شماره پیدا نشد');
   }
 
   user.email = decrypt(user.email) as string;
@@ -17,4 +17,4 @@ async function getUserByEmail(email: string) {
   return user;
 }
 
-export { getUserByEmail };
+export { getUserByTel };

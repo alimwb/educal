@@ -1,5 +1,5 @@
-import { signupInp } from "../interfaces/inputs";
+import { signupInp, loginInp } from "../interfaces/inputs";
 
-type validInputs = signupInp;
+type validInputs = signupInp | loginInp;
 
 export { validInputs };

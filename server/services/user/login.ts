@@ -1,20 +1,29 @@
 import { compare } from "bcryptjs";
 import { UserService } from "./user.service";
+import { userModel } from "../../types/interfaces/models";
+import mongoose = require('mongoose');
+import { UnauthorizedErr } from "../../helpers/errors";
 
-async function login(this: typeof UserService,email: string, password: string) {
-  const user = await this.getUserByEmail(email);
+async function login(this: typeof UserService, login: string, pass: string) {
+  let user: userModel & mongoose.Document | null = null;
 
-  if (user === null) {
-    return false;
+  // login field is an email
+  if (login.includes('@')) {
+    user = await this.getUserByEmail(login);
+  }
+  else {
+    user = await this.getUserByTel(login);
   }
 
-  const doesPassMatch = await compare(password, user.password);
+  const doesPassMatch = await compare(pass, user!.password);
 
   if (!doesPassMatch) {
-    return false;
+    throw new UnauthorizedErr('ایمیل، شماره همراه یا رمز عبور اشتباه است');
   }
 
-  return user;
+  const { password, ...userInfo } = user!.toObject();
+
+  return userInfo;
 }
 
 export { login };

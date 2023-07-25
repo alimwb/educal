@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { ValidationError } from 'yup';
 import { MulterError } from 'multer';
-import { errorLogger, NotFoundErr, ServerErr, BadRequestErr, UnauthorizedErr, ForbiddenErr, ApiKeyErr } from './';
+import { errorLogger, NotFoundErr, BadRequestErr, UnauthorizedErr, ForbiddenErr, ApiKeyErr } from './';
 
 const handler = (err: Error, req: Request, res: Response, next: NextFunction) => {
-  let errors: { code: number, message: string}[] = [];
+  let errors: { code: number, message: string }[] = [];
   let resObj = {
     errors,
     headers: req.headers,
@@ -82,7 +82,10 @@ const handler = (err: Error, req: Request, res: Response, next: NextFunction) =>
   // it's a server err
   else {
     res.status(500);
-    resObj.errors.push(new ServerErr());
+    resObj.errors.push({
+      code: 500,
+      message: 'خطایی در سمت سرور رخ داده است',
+    });
     errorLogger({ title: 'SERVER-SIDE ERROR' }, [
       {
         err,

@@ -1,17 +1,26 @@
-import { Strategy } from "passport-local";
+import { Strategy } from 'passport-local';
 import { UserService } from '../services';
-import { BadRequestErr } from '../helpers/errors';
+import { UnauthorizedErr } from '../helpers/errors';
 
 const localStrategy = new Strategy(
-  { usernameField: 'email', session: false },
+  { usernameField: 'login' },
   async (email, password, done) => {
-    const user = await UserService.login(email, password);
+    try {
+      const user = await UserService.login(email, password);
 
-    if (user) {
       done(null, user);
+    } catch (err) {
+      done(err);
     }
-    else {
-      done(new BadRequestErr('ایمیل یا رمز عبور اشتباه است.'));
-    }
+
+
+    // if (user) {
+    //   done(null, user);
+    // }
+    // else {
+    //   done(new UnauthorizedErr('ایمیل، شماره همراه یا رمز عبور اشتباه است'));
+    // }
   }
 );
+
+export { localStrategy as userLocalStrategy };

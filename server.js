@@ -33,9 +33,9 @@ app.prepare().then(async () => {
     origin: envVars.environment === 'dev' ? 'http://localhost:3000' : '',
   }));
 
-  server.use(`/api/${envVars.version}/docs`, swaggerUI.serve, swaggerUI.setup(swaggerDoc));
+  server.use(`/api/v1/docs`, swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
-  server.use(`/api/${envVars.version}/auth`, authRouter);
+  server.use(`/api/v1/auth`, authRouter);
 
   // handle errors
   server.use(createNotFoundErr);

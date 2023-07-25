@@ -48,10 +48,55 @@ paths:
         400:
           $ref: '#/components/responses/res400'
 
+  /auth/login:
+    post:
+      tags: [ 'Auth' ]
+      summary: User login
+      description: User can login using both email and phone number.
+      requestBody:
+        description: Use this route for user login.
+        content:
+          application/json:
+            schema: 
+              required:
+                - login
+                - password
+              type: object
+              properties:
+                login: 
+                  type: string
+                  description: User's email or phone number.
+                  example: user@example.com
+                password:
+                  type: string
+                  example: 12345678
+      responses:
+        200:
+          description: The user data is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: "#/components/schemas/user"
+                  message:
+                    $ref: "#/components/schemas/message"
+        400:
+          $ref: "#/components/responses/res400"
+        401:
+          $ref: "#/components/responses/res401"
+
 components:
   responses:
     res400:
       description: The inputs or parameters provided by client are not valid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+    res401:
+      description: The client is not authorized with the provided credentials.
       content:
         application/json:
           schema:
@@ -108,4 +153,7 @@ components:
         joined:
           type: number
           description: Timestamp of the time when user first joined.
-          example: 169832923821
+          example: 2023-07-25T06:41:35.730Z
+    message:
+      type: string
+      description: A message to show to the user when the request is successful.
