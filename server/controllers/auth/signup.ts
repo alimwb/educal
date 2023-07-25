@@ -25,7 +25,7 @@ const controller = [
 
     const user = await UserService.signup(res.locals.validBody);
     const jwt = sign(
-      { id: user.id, email: user.email },
+      { id: user._id, email: user.email },
       envVars.jwtSecret,
     );
 
@@ -35,10 +35,8 @@ const controller = [
       signed: true,
       secure: envVars.environment === 'production',
     });
-
-    const { password, ...userInfo } = user.toObject();
     
-    res.json(userInfo);
+    res.json(user);
   }),
 ]
 

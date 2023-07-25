@@ -24,7 +24,10 @@ async function signup(data: signupInp) {
   user.nationalId = decrypt(user.nationalId);
 
   await user.save();
-  return user;
+
+  const { password, ...userInfo } = user.toObject();
+
+  return userInfo;
 }
 
 export { signup };
