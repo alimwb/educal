@@ -7,6 +7,7 @@ import { BadRequestErr } from '../../helpers/errors';
 
 /**
  * Creates a new user record based on inputs received from client.
+ * 
  * @param data the inputs received from client.
  * @returns created user's data
  */

@@ -2,6 +2,14 @@ import { User } from "../../models";
 import { encrypt, decrypt } from "../../helpers/cipherFunc";
 import { NotFoundErr } from "../../helpers/errors";
 
+/**
+ * Find the user based on the given tel.
+ * Throws a NotFoundErr if there's not user with this tel.
+ * 
+ * @param tel the tel to find the user with
+ * @returns found user's data
+ */
+
 async function getUserByTel(tel: string) {
   const encryptedTel = encrypt(tel);
   const user = await User.findOne({ tel: encryptedTel });
