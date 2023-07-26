@@ -38,8 +38,8 @@ app.prepare().then(async () => {
   server.use('/api/v1/user', userRouter);
 
   // handle errors
-  server.use(createNotFoundErr);
-  server.use(errorHandler);
+  server.use('/api/*', createNotFoundErr);
+  server.use('/api/*', errorHandler);
 
   server.all('*', (req, res) => {
     return handle(req, res)
