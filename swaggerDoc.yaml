@@ -91,6 +91,25 @@ paths:
         401:
           $ref: "#/components/responses/res401"
 
+  /user/profile:
+    get:
+      tags:
+        - User
+      summary: Get user's profile info
+      security:
+        - authToken: []
+      description: The client can get the user's profile info using this route. User must be logged in.
+      responses:
+        200: 
+          description: If the user hasn't completed the profile, some fields may be null.
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/user"
+        401:
+          $ref: "#/components/responses/res401"
+      
+
 components:
   securitySchemes:
     authToken:
