@@ -22,7 +22,9 @@ async function getUserByEmail(email: string) {
   user.tel = decrypt(user.tel);
   user.nationalId = decrypt(user.nationalId);
 
-  return user;
+  const { password, ...userInfo} = user.toObject();
+
+  return userInfo;
 }
 
 export { getUserByEmail };
