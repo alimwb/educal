@@ -109,6 +109,52 @@ paths:
         401:
           $ref: "#/components/responses/res401"
       
+  /user/update:
+    put:
+      tags:
+        - User
+      security:
+        - { authToken: [] }
+      summary: Update user's profile
+      description: User must be logged in to access this route.
+      requestBody:
+        description: All the fields are optional (you can only provide the ones you want to update).
+        content:
+          application/json:
+            schema: 
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  description: User's first name. Must contain at least 1 character.
+                  example: Hadi
+                lastName:
+                  type: string
+                  description: User's last name. Must contain at least 1 character.
+                  example: Moshtaghi
+                tel:
+                  type: string
+                  description: User's phone number. Must contain 11 characters.
+                  example: 09011234567
+                nationalId:
+                  type: string
+                  description: User's national Id. Must contain 10 characters.
+                  example: 0123456789
+                email:
+                  type: string
+                  description: User's valid email.
+                  example: user@example.com
+      responses:
+        200:
+          description: User's profile is updated.
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/user"
+        400:
+          $ref: "#/components/responses/res400"
+        401:
+          $ref: "#/components/responses/res401"
 
 components:
   securitySchemes:

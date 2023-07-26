@@ -8,7 +8,7 @@ import { encrypt } from "../../helpers";
  * @returns true if there's a duplicate, otherwise false
  */
 
-async function checkDuplicateEmail(email: string) {
+async function checkDuplicateTel(email: string) {
   const encryptedEmail = encrypt(email);
   const user = await User.findOne({ email: encryptedEmail });
 
@@ -20,4 +20,4 @@ async function checkDuplicateEmail(email: string) {
   }
 }
 
-export { checkDuplicateEmail };
+export { checkDuplicateTel };
