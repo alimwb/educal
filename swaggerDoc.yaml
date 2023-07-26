@@ -9,6 +9,8 @@ paths:
     post:
       tags: [Auth]
       summary: User signup
+      security:
+        - {} 
       description: Use this route for user registering. After signup, the user's authorization token will be kept and used by server.
       requestBody:
         description: All fields must be included.
@@ -52,6 +54,8 @@ paths:
     post:
       tags: [ 'Auth' ]
       summary: User login
+      security:
+        - {}      
       description: User can login using both email and phone number.
       requestBody:
         description: Use this route for user login.
@@ -88,6 +92,13 @@ paths:
           $ref: "#/components/responses/res401"
 
 components:
+  securitySchemes:
+    authToken:
+      description: This cookie is set and used by server.
+      name: authToken
+      type: apiKey
+      in: cookie
+
   responses:
     res400:
       description: The inputs or parameters provided by client are not valid.
@@ -125,8 +136,7 @@ components:
           description: Request body sent from client
         parameters:
           type: object
-          description: Parameters sent from client
-          
+          description: Parameters sent from client 
     user:
       type: object
       properties:
@@ -161,3 +171,6 @@ components:
     message:
       type: string
       description: A message to show to the user when the request is successful.
+
+security:
+  - authToken: []
