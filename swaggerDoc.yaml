@@ -104,25 +104,29 @@ components:
 
   schemas:
     error:
-      type: array
-      items:
-        type: object
-        properties:
-          code:
-            type: number
-            description: HTTP error code
-          message:
-            type: string
-            description: Error reason
-          headers:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
             type: object
-            description: Headers sent from client
-          reqBody:
-            type: object
-            description: Request body sent from client
-          parameters:
-            type: object
-            description: Parameters sent from client
+            properties:
+              code:
+                type: number
+                description: HTTP error code
+              message:
+                type: string
+                description: Error reason
+        headers:
+          type: object
+          description: Headers sent from client
+        reqBody:
+          type: object
+          description: Request body sent from client
+        parameters:
+          type: object
+          description: Parameters sent from client
+          
     user:
       type: object
       properties:
