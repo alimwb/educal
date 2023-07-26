@@ -1,4 +1,14 @@
-import { getUserByEmail, login, signup, checkDuplicateEmail, getUserJWT, getUserByTel } from './';
+import {
+  getUserByEmail,
+  login,
+  signup,
+  checkDuplicateEmail,
+  getUserJWT,
+  getUserByTel,
+  checkDuplicateTel,
+  decryptUserData,
+  getUserById,
+} from './';
 
 class UserService {
   static getUserByEmail = getUserByEmail;
@@ -7,6 +17,9 @@ class UserService {
   static checkDuplicateEmail = checkDuplicateEmail;
   static getUserJWT = getUserJWT;
   static getUserByTel = getUserByTel;
+  static checkDuplicateTel = checkDuplicateTel;
+  static decryptUserData = decryptUserData;
+  static getUserById = getUserById;
 }
 
 export { UserService };
