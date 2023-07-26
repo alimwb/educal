@@ -2,6 +2,7 @@ import { User } from "../../models";
 import { compare } from "bcryptjs";
 import { UserService } from "./user.service";
 import { UnauthorizedErr } from "../../helpers/errors";
+import { encrypt } from "../../helpers";
 
 /**
  * Login the user using the credentials provided from client.
@@ -15,8 +16,8 @@ import { UnauthorizedErr } from "../../helpers/errors";
 async function login(this: typeof UserService, login: string, pass: string) {
   let user = await User.findOne({
     $or: [
-      { email: login },
-      { tel: login },
+      { email: encrypt(login) },
+      { tel: encrypt(login) },
     ]
   });
 
@@ -32,7 +33,7 @@ async function login(this: typeof UserService, login: string, pass: string) {
 
   const { password, ...userInfo } = user!.toObject();
 
-  return userInfo;
+  return this.decryptUserData(userInfo);
 }
 
 export { login };
