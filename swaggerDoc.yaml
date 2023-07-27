@@ -161,6 +161,28 @@ paths:
         401:
           $ref: "#/components/responses/res401"
 
+  /user/logout:
+    post: 
+      tags:
+        - User
+      security:
+        - { authToken: [] }
+      summary: User logout
+      description: The user must be logged in.
+      responses:
+        200:
+          description: User is logged out successfully.
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    $ref: "#/components/schemas/message"
+        401: 
+          $ref: "#/components/responses/res401"
+      
+
 components:
   securitySchemes:
     authToken:
