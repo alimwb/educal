@@ -1,5 +1,5 @@
 import { User } from "../../models";
-import { encrypt } from "../../helpers";
+import { encrypt, decrypt } from "../../helpers";
 
 /**
  * Find out if there's already a user with this email address.
@@ -8,7 +8,7 @@ import { encrypt } from "../../helpers";
  * @returns true if there's a duplicate, otherwise false
  */
 
-async function checkDuplicateTel(email: string) {
+async function checkDuplicateEmail(email: string) {
   const encryptedEmail = encrypt(email);
   const user = await User.findOne({ email: encryptedEmail });
 
@@ -20,4 +20,4 @@ async function checkDuplicateTel(email: string) {
   }
 }
 
-export { checkDuplicateTel };
+export { checkDuplicateEmail };
