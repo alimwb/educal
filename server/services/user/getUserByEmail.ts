@@ -1,6 +1,7 @@
 import { User } from "../../models";
 import { encrypt, decrypt } from "../../helpers/cipherFunc";
 import { NotFoundErr } from "../../helpers/errors";
+import { UserService } from "./user.service";
 
 /**
  * Find the user based on the given email. 
@@ -10,7 +11,7 @@ import { NotFoundErr } from "../../helpers/errors";
  * @returns found user's data
  */
 
-async function getUserByEmail(email: string) {
+async function getUserByEmail(this: typeof UserService, email: string) {
   const encryptedEmail = encrypt(email);
   const user = await User.findOne({ email: encryptedEmail });
 
@@ -18,13 +19,9 @@ async function getUserByEmail(email: string) {
     throw new NotFoundErr('کاربری با این ایمیل پیدا نشد');
   }
 
-  user.email = decrypt(user.email) as string;
-  user.tel = decrypt(user.tel);
-  user.nationalId = decrypt(user.nationalId);
-
   const { password, ...userInfo} = user.toObject();
 
-  return userInfo;
+  return await this.decryptUserData(userInfo);
 }
 
 export { getUserByEmail };
