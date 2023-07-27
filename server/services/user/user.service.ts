@@ -8,6 +8,7 @@ import {
   checkDuplicateTel,
   decryptUserData,
   getUserById,
+  updateProfileById,
 } from './';
 
 class UserService {
@@ -20,6 +21,7 @@ class UserService {
   static checkDuplicateTel = checkDuplicateTel;
   static decryptUserData = decryptUserData;
   static getUserById = getUserById;
+  static updateProfileById = updateProfileById;
 }
 
 export { UserService };

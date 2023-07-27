@@ -116,7 +116,7 @@ paths:
       security:
         - { authToken: [] }
       summary: Update user's profile
-      description: User must be logged in to access this route.
+      description: User must be logged in to access this route. If the user's email is changed, the authToken cookie will be replaced.
       requestBody:
         description: All the fields are optional (you can only provide the ones you want to update).
         content:
@@ -150,7 +150,12 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: "#/components/schemas/user"
+                type: object
+                properties:
+                  user: 
+                    $ref: "#/components/schemas/user"
+                  message: 
+                    $ref: "#/components/schemas/message"
         400:
           $ref: "#/components/responses/res400"
         401:

@@ -7,3 +7,4 @@ export * from './getUserByTel';
 export * from './checkDuplicateTel';
 export * from './decryptUserData';
 export * from './getUserById';
+export * from './updateProfile';
