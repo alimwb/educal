@@ -31,12 +31,12 @@ async function updateProfileById(this: typeof UserService, id: string, data: use
     }
   }
 
-  user.tel = data.tel ? encrypt(data.tel) : encrypt(user.tel);
-  user.nationalId = data.nationalId ? encrypt(data.nationalId) : encrypt(user.nationalId);
-  user.email = data.email ? encrypt(data.email) as string : encrypt(user.email) as string;
-  user.firstName = data.firstName ? data.firstName : user.firstName;
-  user.lastName = data.lastName ? data.lastName : user.lastName;
-  user.avatarUrl = data.avatarUrl ? data.avatarUrl : user.avatarUrl;
+  user.tel = 'tel' in data ? encrypt(data.tel) : encrypt(user.tel);
+  user.nationalId = 'nationalId' in data ? encrypt(data.nationalId) : encrypt(user.nationalId);
+  user.email = 'email' in data ? encrypt(data.email) as string : encrypt(user.email) as string;
+  user.firstName = 'firstName' in data ? data.firstName : user.firstName;
+  user.lastName = 'lastName' in data ? data.lastName : user.lastName;
+  user.avatarUrl = 'avatarUrl' in data ? data.avatarUrl : user.avatarUrl;
   
   await User.updateOne({ _id: id }, user);
   return await this.decryptUserData(user);
