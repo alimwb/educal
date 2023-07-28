@@ -217,6 +217,29 @@ paths:
         401:
           $ref: "#/components/responses/res401"
 
+  /user/profile/avatar/remove:
+    delete:
+      tags:
+        - User
+      security:
+        - { authToken: [] }
+      summary: Remove avatar image
+      description: User must be logged in. User must have an avatar uploaded or else there will be an error.
+      responses:
+        200: 
+          description: Avatar image is removed.
+          content:
+            application/json: 
+              schema: 
+                type: object
+                properties:
+                  message: 
+                    $ref: "#/components/schemas/message"
+        400:
+          $ref: "#/components/responses/res400"
+        401:
+          $ref: "#/components/responses/res401"
+      
 
 components:
   securitySchemes:

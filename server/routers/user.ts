@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getProfile, updateProfile, logout, uploadAvatar } from "../controllers/user";
+import { getProfile, updateProfile, logout, uploadAvatar, removeAvatar } from "../controllers/user";
 
 const router = Router();
 
@@ -8,6 +8,8 @@ router.get('/profile', getProfile);
 router.put('/profile/update', updateProfile);
 
 router.put('/profile/avatar/upload', uploadAvatar);
+
+router.delete('/profile/avatar/remove', removeAvatar);
 
 router.post('/logout', logout);
 

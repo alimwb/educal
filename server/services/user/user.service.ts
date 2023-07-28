@@ -10,6 +10,7 @@ import {
   getUserById,
   updateProfileById,
   uploadAvatarById,
+  removeAvatarById,
 } from './';
 
 class UserService {
@@ -24,6 +25,7 @@ class UserService {
   static getUserById = getUserById;
   static updateProfileById = updateProfileById;
   static uploadAvatarById = uploadAvatarById;
+  static removeAvatarById = removeAvatarById;
 }
 
 export { UserService };
