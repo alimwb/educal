@@ -1,11 +1,13 @@
 import { Router } from "express";
-import { getProfile, updateProfile, logout } from "../controllers/user";
+import { getProfile, updateProfile, logout, uploadAvatar } from "../controllers/user";
 
 const router = Router();
 
 router.get('/profile', getProfile);
 
 router.put('/profile/update', updateProfile);
+
+router.put('/profile/avatar/upload', uploadAvatar);
 
 router.post('/logout', logout);
 

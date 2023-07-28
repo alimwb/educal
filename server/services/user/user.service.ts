@@ -9,6 +9,7 @@ import {
   decryptUserData,
   getUserById,
   updateProfileById,
+  uploadAvatarById,
 } from './';
 
 class UserService {
@@ -22,6 +23,7 @@ class UserService {
   static decryptUserData = decryptUserData;
   static getUserById = getUserById;
   static updateProfileById = updateProfileById;
+  static uploadAvatarById = uploadAvatarById;
 }
 
 export { UserService };

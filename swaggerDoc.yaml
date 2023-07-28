@@ -182,6 +182,41 @@ paths:
         401: 
           $ref: "#/components/responses/res401"
 
+  /user/profile/avatar/upload:
+    put:
+      tags:
+        - User
+      security:
+        - { authToken: [] }
+      summary: Upload user avatar
+      description: User must be logged in.
+      requestBody:
+        description: The image must be sent as a file (not base64). Limitations => size upto 2 MB, supported formats are .jpg, .jpeg, .png, .webp.
+        content:
+          application/json:
+            schema: 
+              type: object
+              properties:
+                img:
+                  type: object
+                  description: Image File.
+      responses:
+        200: 
+          description: Profile pic is uploaded and user's data is updated.
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  url:
+                    $ref: "#/components/schemas/imgUrl"
+                  message:
+                    $ref: "#/components/schemas/message"
+        400:
+          $ref: "#/components/responses/res400"
+        401:
+          $ref: "#/components/responses/res401"
+
 
 components:
   securitySchemes:
@@ -263,6 +298,10 @@ components:
     message:
       type: string
       description: A message to show to the user when the request is successful.
+    imgUrl:
+      type: string
+      description: Relative url to the image. You can put this in "src" attribute.
+      example: /path/to/image.jpg
 
 security:
   - authToken: []
