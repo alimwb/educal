@@ -6,6 +6,14 @@ import { updateProfileInpValidator } from '../../validators/user/index';
 import { userModel } from '../../types/interfaces/models';
 import { envVars } from '../../config';
 
+/**
+ * 1. authentication
+ * 2. validate client inputs
+ * 3. update user's info
+ * 4. check if the email is changed, if yes, set a new auth token
+ * 5. send user's data to client
+ */
+
 const controller = [
   passport.authenticate('userJwt', { session: false }),
 

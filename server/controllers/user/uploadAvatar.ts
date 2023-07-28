@@ -5,6 +5,14 @@ import { UserService } from "../../services";
 import { userModel } from "../../types/interfaces/models";
 import { BadRequestErr } from "../../helpers/errors";
 
+/**
+ * 1. authentication
+ * 2. parse and store image locally
+ * 3. check if any file is uploaded
+ * 4. upload image to cloud and update user's info
+ * 5. send image url to client
+ */
+
 const controller = [
   passport.authenticate('userJwt', { session: false }),
 

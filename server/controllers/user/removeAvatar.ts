@@ -4,6 +4,12 @@ import { passport } from "../../config";
 import { UserService } from "../../services";
 import { userModel } from "../../types/interfaces/models";
 
+/**
+ * 1. authentication
+ * 2. remove avatar image from cloud and update user's info
+ * 3. send response to client
+ */
+
 const controller = [
   passport.authenticate('userJwt', { session: false }),
 
