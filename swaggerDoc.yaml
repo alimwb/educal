@@ -109,7 +109,7 @@ paths:
         401:
           $ref: "#/components/responses/res401"
       
-  /user/update:
+  /user/profile/update:
     put:
       tags:
         - User
@@ -181,7 +181,7 @@ paths:
                     $ref: "#/components/schemas/message"
         401: 
           $ref: "#/components/responses/res401"
-      
+
 
 components:
   securitySchemes:
