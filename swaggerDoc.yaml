@@ -287,7 +287,7 @@ components:
           type: string
           description: User's valid email.
           example: user@example.com
-        profilePicUrl:
+        avatarUrl:
           type: string
           description: Relative address of profile pic.
           example: /path/to/image.jpg
