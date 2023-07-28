@@ -1,9 +1,8 @@
 import { encrypt } from "../../helpers";
 import { ForbiddenErr } from "../../helpers/errors";
 import { User } from "../../models";
-import { userProfileUpdateInputs } from "../../types/interfaces/inputs";
 import { UserService } from "./user.service";
-
+import { userProfileUpdate } from "../../types/interfaces/user";
 /**
  * Update a user's info with new data from client.
  * If `tel` or `email` fields are provided, their uniqueness will be checked.
@@ -13,7 +12,7 @@ import { UserService } from "./user.service";
  * @returns user's data
  */
 
-async function updateProfileById(this: typeof UserService, id: string, data: userProfileUpdateInputs) {
+async function updateProfileById(this: typeof UserService, id: string, data: userProfileUpdate) {
   const user = await this.getUserById(id);
 
   if (data.email && (user.email !== data.email)) {
