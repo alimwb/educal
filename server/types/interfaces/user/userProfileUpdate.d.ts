@@ -1,10 +1,10 @@
 interface userProfileUpdate {
-  firstName?: string;
-  lastName?: string;
-  tel?: string;
-  nationalId?: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  tel?: string | null;
+  nationalId?: string | null;
   email?: string;
-  avatarUrl?: string;
+  avatarUrl?: string | null;
 }
 
 export { userProfileUpdate };
