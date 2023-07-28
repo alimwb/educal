@@ -9,7 +9,7 @@ const User = mongoose.model('User', new Schema<userModel>({
   nationalId: { type: String, default: null },
   password: { type: String, required: true },
   email: { type: String, required: true },
-  profilePicUrl: { type: String, default: null },
+  avatarUrl: { type: String, default: null },
   joined: { type: Date, default: Date.now(), required: true },
 }));
 

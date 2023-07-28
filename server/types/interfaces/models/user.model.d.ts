@@ -6,7 +6,7 @@ interface userModel {
   nationalId?: string | null;
   email: string;
   password: string;
-  profilePicUrl?: string | null;
+  avatarUrl?: string | null;
   joined: Date;
 }
 
