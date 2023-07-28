@@ -23,7 +23,7 @@ const controller = [
     const reqUserObj = req.user as userModel;
     const upUser = await UserService.updateProfileById(reqUserObj._id, res.locals.validBody);
 
-    if (res.locals.validBody.email) {
+    if (upUser.email !== reqUserObj.email) {
       const token = await UserService.getUserJWT(upUser);
 
       res.cookie('authToken', token, {
