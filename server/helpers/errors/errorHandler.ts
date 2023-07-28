@@ -34,6 +34,11 @@ const handler = (err: Error, req: Request, res: Response, next: NextFunction) =>
   // file error
   else if (err instanceof MulterError) {
     res.status(400);
+
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      err.message = 'حجم فایل بیش از حد مجاز است';
+    }
+
     resObj.errors.push({
       code: res.statusCode,
       message: err.message,
