@@ -5,6 +5,7 @@ import BurgerMenus from './BurgerMenus';
 import Head from 'next/head';
 import ShopingCart from './ShopingCart';
 import Image from 'next/image';
+import { Dropdown } from 'react-bootstrap';
 
 const HeaderThree = () => {
 
@@ -36,7 +37,6 @@ const HeaderThree = () => {
       <React.Fragment>
          <Head>
             <title>Educal – Online Course and Education React, Nextjs Template</title>
-            <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
          </Head>
          <header>
             <div id="header-sticky" className="header__area header__transparent header__padding header__white">
@@ -169,7 +169,40 @@ const HeaderThree = () => {
                               </span>
                            </div>
                            <div className="header__btn ml-20 d-none d-sm-block">
-                              <Link href="/contact" className="e-btn">Try for free</Link>
+                              <Dropdown alignright="true" className="drp-user">
+                                 <Dropdown.Toggle variant={'link'} id="dropdown-basic">
+                                    <img className="img-avatar img-avatar48 img-avatar-thumb" src="assets/img/blog/author/blog-author-1.jpg" alt="" />
+                                 </Dropdown.Toggle>
+                                 <Dropdown.Menu alignright="true" className="profile-notification">
+                                    <div className="text-center bg-body-light border-bottom rounded-top">
+                                       <img className="img-avatar img-avatar48 img-avatar-thumb" src="assets/img/blog/author/blog-author-1.jpg" alt="" />
+                                       <p className="mt-2 mb-0 fw-medium">John Smith</p>
+                                       <p className="mb-0 text-muted fs-sm fw-medium">Web Developer</p>
+                                    </div>
+                                    <div>
+                                       <a className="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
+                                          <span className="fs-sm fw-medium">Inbox</span>
+                                          <span className="badge rounded-pill bg-primary ms-2">3</span>
+                                       </a>
+                                       <a className="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_profile.html">
+                                          <span className="fs-sm fw-medium">Profile</span>
+                                          <span className="badge rounded-pill bg-primary ms-2">1</span>
+                                       </a>
+                                       <a className="dropdown-item d-flex align-items-center justify-content-between" href="#">
+                                          <span className="fs-sm fw-medium">Settings</span>
+                                       </a>
+                                    </div>
+                                    <div role="separator" className="dropdown-divider m-0"></div>
+                                    <div>
+                                       <a className="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_lock.html">
+                                          <span className="fs-sm fw-medium">Lock Account</span>
+                                       </a>
+                                       <a className="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_signin.html">
+                                          <span className="fs-sm fw-medium">Log Out</span>
+                                       </a>
+                                    </div>
+                                 </Dropdown.Menu>
+                              </Dropdown>
                            </div>
                            <div className="sidebar__menu d-xl-none">
                               <div className="sidebar-toggle-btn ml-30" id="sidebar-toggle" onClick={() => { setMenuOpen(!menuOpen) }}>

@@ -34,7 +34,6 @@ const HeaderFour = () => {
         <React.Fragment>
             <Head>
                 <title>Educal – Online Course and Education React, Nextjs Template</title>
-                <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
             </Head>
             <header>
                 <div id="header-sticky" className="header__area header__padding-2 header__shadow">
