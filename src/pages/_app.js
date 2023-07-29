@@ -4,8 +4,12 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import withRedux from "next-redux-wrapper";
 import store from '../redux/store';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 // import { loadIcons } from '../utils/IconLoader';
-
+import { persistStore } from "redux-persist";
+let persistor = persistStore(store);
+import { PersistGate } from "redux-persist/integration/react";
 
 // loadIcons();
 
@@ -24,7 +28,10 @@ class MyApp extends App {
 
         return (
             <Provider store={store}>
-                <Component {...pageProps} />
+                <PersistGate loading={null} persistor={persistor}>
+                    <Component {...pageProps} />
+                    <ToastContainer rtl />
+                </PersistGate>
             </Provider>
         );
     }
