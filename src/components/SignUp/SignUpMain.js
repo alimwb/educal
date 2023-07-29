@@ -1,15 +1,18 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Link from "next/link";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 import store from '../../redux/store';
+import Loading from '../Loading'
 
 import UseHttp from "../../Hooks/HttpHooks"
 import { useRouter } from "next/router";
 
 
 const SignUpMain = () => {
+    const [loading, setLoading] = useState(false)
+
     const router = useRouter();
     const http = new UseHttp();
 
@@ -24,6 +27,7 @@ const SignUpMain = () => {
     });
 
     const SignUpSubmit = async (values) => {
+        setLoading(true)
         await http.post(`/auth/signup`, values).then((response) => {
             store.dispatch({
                 type: 'AUTH_USER_DATA',
@@ -40,6 +44,7 @@ const SignUpMain = () => {
                 progress: undefined,
                 theme: "light",
             });
+            setLoading(false)
             setTimeout(() => router.push('/'), 3000);
         })
             .catch(error => {
@@ -54,6 +59,7 @@ const SignUpMain = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                setLoading(false)
             });
     }
     return (
@@ -172,7 +178,12 @@ const SignUpMain = () => {
                                                     <ErrorMessage name="agree" component="div" />
                                                 </div>
                                                 <button className="e-btn  w-100" type="submit" disabled={isSubmitting}>
-                                                Sign Up                                                </button>
+                                                {loading ?
+                                                        <div id="loading">
+                                                            <Loading />
+                                                        </div>
+                                                        : 'Submit'}              
+                                                                                  </button>
                                                 <div className="sign__new text-center mt-20">
                                                     <p>Already in Markit ? <Link href="/sign-in">Sign In</Link></p>
                                                 </div>

@@ -1,0 +1,25 @@
+#loading{
+  & svg {
+   transform-origin: 50% 50%;
+   transform: rotate(90deg);
+   width: 30px;
+   height: 30px;
+  & polygon {
+    stroke-dasharray: 17;
+    animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+  }
+ }
+ 
+  
+
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 136;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

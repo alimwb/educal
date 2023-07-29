@@ -1,16 +1,18 @@
-import React, { useLayoutEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { connect } from 'react-redux';
 import { toast } from "react-toastify";
 import store from '../../redux/store';
 
 import UseHttp from "../../Hooks/HttpHooks"
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
+import Loading from '../Loading';
 
-const SignInMain = (props) => {
+
+const SignInMain = () => {
+    const [loading, setLoading] = useState(false)
     const router = useRouter();
     const http = new UseHttp();
 
@@ -20,6 +22,7 @@ const SignInMain = (props) => {
     });
 
     const loginSubmit = async (values) => {
+        setLoading(true)
         await http.post(`/auth/login`, values).then((response) => {
             store.dispatch({
                 type: 'AUTH_USER_DATA',
@@ -35,6 +38,7 @@ const SignInMain = (props) => {
                 progress: undefined,
                 theme: "light",
             });
+            setLoading(false)
             setTimeout(() => router.push('/'), 3000);
         })
             .catch(error => {
@@ -49,6 +53,7 @@ const SignInMain = (props) => {
                     progress: undefined,
                     theme: "light",
                 });
+                setLoading(false)
             });
     }
     return (
@@ -152,7 +157,11 @@ const SignInMain = (props) => {
                                                     </div>
                                                 </div>
                                                 <button className="e-btn  w-100" type="submit" disabled={isSubmitting}>
-                                                    Submit
+                                                    {loading ?
+                                                        <div id="loading">
+                                                            <Loading />
+                                                        </div>
+                                                        : 'Submit'}
                                                 </button>
                                                 <div className="sign__new text-center mt-20">
                                                     <p>
