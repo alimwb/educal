@@ -2,25 +2,32 @@ import React from 'react';
 import FooterThree from '../components/Layout/Footer/FooterStyleThree';
 import SignInMain from '../components/SignIn/SignInMain';
 import HeaderFour from '../components/Layout/Header/HeaderStyleFour';
+import { useRouter } from 'next/router';
+import { connect } from 'react-redux';
 
-class SignIn extends React.Component {
-
-    static getInitialProps({store}) {}
-
-    constructor(props) {
-        super(props);
+const SignIn = (props) => {
+    const { authData } = props;
+    const router = useRouter();
+    if (authData !== null) {
+        router.push('/');
     }
 
-    render() {
-        return (
-            <React.Fragment>
+
+    return (
+        <React.Fragment>
             <HeaderFour />
             <SignInMain />
             <FooterThree />
-            </React.Fragment>
-        );
-    }
+        </React.Fragment>
+    );
 }
 
 
-export default SignIn;
+
+const mapStateToProps = (state) => {
+    console.log(state);
+    const { authData } = state.authData;
+    return { authData }
+};
+
+export default connect(mapStateToProps)(SignIn);
