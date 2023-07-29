@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { Dropdown } from 'react-bootstrap';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import BurgerMenus from './BurgerMenus';
 import ShopingCart from './ShopingCart';
+import { connect } from 'react-redux';
 
-const Header = () => {
-
+const Header = (props) => {
    const [menuOpen, setMenuOpen] = useState(false)
    const [shopOpen, setShopOpen] = useState(false)
 
-   const router = useRouter()
-   const [path, setPath] = useState("")
+   const router = useRouter();
+   const { authData } = props;
+   const [path, setPath] = useState("");
+
    useEffect(() => {
       setPath(router.pathname)
    }, [router])
+
 
    // Sticky Menu Area start
    useEffect(() => {
@@ -24,6 +28,7 @@ const Header = () => {
       };
    });
 
+
    const sticky = (e) => {
       const header = document.querySelector('.header__area');
       const scrollTop = window.scrollY;
@@ -31,11 +36,17 @@ const Header = () => {
    };
    // Sticky Menu Area End
 
+
+   const logOutHandler = ()=>{
+      storage.removeItem('persist:root');
+      router.push('/');
+   }
+
+
    return (
       <React.Fragment>
          <Head>
             <title>Educal – Online Course and Education React, Nextjs Template</title>
-            <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
          </Head>
          <header>
             <div id="header-sticky" className="header__area header__transparent header__padding">
@@ -164,9 +175,39 @@ const Header = () => {
                                  <span className="cart-item">2</span>
                               </span>
                            </div>
-                           <div className="header__btn ml-20 d-none d-sm-block">
-                              <Link href="/contact" className="e-btn">Try for free</Link>
-                           </div>
+                           {authData === null ?
+                              <Link href="/sign-up" className="e-btn ms-3">Sign Up</Link>
+                              :
+                              <div className="header__btn ml-20 d-none d-sm-block">
+                                 <Dropdown alignright="true" className="drp-user">
+                                    <Dropdown.Toggle variant={'link'} id="dropdown-basic">
+                                       <img className="img-avatar img-avatar48 img-avatar-thumb" src="assets/img/blog/author/blog-author-1.jpg" alt="" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu alignright="true" className="profile-notification">
+                                       <div className="text-center bg-body-light border-bottom rounded-top">
+                                          <img className="img-avatar img-avatar48 img-avatar-thumb" src="assets/img/blog/author/blog-author-1.jpg" alt="" />
+                                          <p className="mt-2 mb-0 fw-medium">{authData.firstName!==null?authData.firstName:null}</p>
+                                          <p className="mb-0 text-muted fs-sm fw-medium">{authData.email!==null?authData.email :null}</p>
+                                       </div>
+                                       <div>
+                                          <a className="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_profile.html">
+                                             <span className="fs-sm fw-medium">Profile</span>
+                                             {/* <span className="badge rounded-pill bg-primary ms-2">1</span> */}
+                                          </a>
+                                          <a className="dropdown-item d-flex align-items-center justify-content-between" href="#">
+                                             <span className="fs-sm fw-medium">Settings</span>
+                                          </a>
+                                       </div>
+                                       <div role="separator" className="dropdown-divider m-0"></div>
+                                       <div>
+                                          <a className="dropdown-item d-flex align-items-center justify-content-between" onClick={logOutHandler}>
+                                             <span className="fs-sm fw-medium">Log Out</span>
+                                          </a>
+                                       </div>
+                                    </Dropdown.Menu>
+                                 </Dropdown>
+                              </div>
+                           }
                            <div className="sidebar__menu d-xl-none">
                               <div className="sidebar-toggle-btn ml-30" id="sidebar-toggle" onClick={() => {
                                  setMenuOpen(!menuOpen)
@@ -193,4 +234,15 @@ const Header = () => {
    );
 }
 
-export default Header;
+
+const mapStateToProps = (state) => {
+   console.log(state);
+   const { authData } = state.authData;
+   return { authData }
+};
+
+export default connect(mapStateToProps)(Header);
+
+
+
+
