@@ -49,3 +49,5 @@ yarn.lock
 prisma
 
 built
+
+.vscode
