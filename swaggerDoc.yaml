@@ -312,8 +312,12 @@ components:
           example: user@example.com
         avatarUrl:
           type: string
-          description: Relative address of profile pic.
-          example: /path/to/image.jpg
+          description: User's avatar address. The size is 100*100.
+          example: image.jpg
+        originalAvatarUrl:
+          type: string
+          description: User's original avatar address. It has the actual size of the image.
+          example: image.jpg
         joined:
           type: number
           description: Timestamp of the time when user first joined.
@@ -323,8 +327,8 @@ components:
       description: A message to show to the user when the request is successful.
     imgUrl:
       type: string
-      description: Relative url to the image. You can put this in "src" attribute.
-      example: /path/to/image.jpg
+      description: The uploaded image name. Use it in this form => /api/v1/img/{image name}.
+      example: image.jpg
 
 security:
   - authToken: []
