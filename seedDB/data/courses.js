@@ -2,6 +2,7 @@ const courses = [
   {
     courseId: 1,
     title: 'دوره Node.js پیشرفته',
+    coverUrl: null,
     category: 'backend',
     price: 4500000,
     skillLevel: 'expert',
@@ -12,6 +13,7 @@ const courses = [
   {
     courseId: 2,
     title: 'دوره React.js پیشرفته',
+    coverUrl: null,
     category: 'frontend',
     price: 4500000,
     skillLevel: 'expert',
@@ -22,6 +24,7 @@ const courses = [
   {
     courseId: 3,
     title: 'دوره Next.js مبتدی',
+    coverUrl: null,
     category: 'frontend',
     price: 4500000,
     skillLevel: 'beginner',
@@ -32,6 +35,7 @@ const courses = [
   {
     courseId: 4,
     title: 'دوره devops',
+    coverUrl: null,
     category: 'system',
     price: 4500000,
     skillLevel: 'all',
@@ -42,6 +46,7 @@ const courses = [
   {
     courseId: 5,
     title: 'دوره JavaScript مبتدی',
+    coverUrl: null,
     category: 'programming',
     price: 4500000,
     skillLevel: 'beginner',
