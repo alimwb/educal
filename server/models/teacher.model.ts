@@ -3,6 +3,7 @@ import { teacherModel } from '../types/interfaces/models';
 
 const { Schema } = mongoose;
 const Teacher = mongoose.model('Teacher', new Schema<teacherModel>({
+  teacherId: { type: Number, required: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   role: { type: String, required: true },

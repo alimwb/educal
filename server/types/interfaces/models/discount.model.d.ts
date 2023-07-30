@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 
 interface discountModel {
+  discountId: number;
   _id: string;
   user: Types.ObjectId; // reference to User collection
   course: Types.ObjectId // reference to Course collection

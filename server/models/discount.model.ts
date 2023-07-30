@@ -3,6 +3,7 @@ import { discountModel } from '../types/interfaces/models';
 
 const { Schema } = mongoose;
 const Discount = mongoose.model('Discount', new Schema<discountModel>({
+  discountId: { type: Number, required: true },
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   course: { type: Schema.Types.ObjectId, ref: 'Course', required: true },
   code: { type: String, required: true },

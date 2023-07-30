@@ -3,6 +3,7 @@ import { transactionModel } from '../types/interfaces/models';
 
 const { Schema } = mongoose;
 const Transaction = mongoose.model('Transaction', new Schema<transactionModel>({
+  transactionId: { type: Number, required: true },
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   cart: { type: Schema.Types.ObjectId, ref: 'ShopCart', required: true },
   checkout: { type: Schema.Types.Decimal128, required: true },

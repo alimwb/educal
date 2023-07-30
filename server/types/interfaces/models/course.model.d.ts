@@ -1,11 +1,13 @@
 import { Types } from "mongoose";
 
 interface courseModel {
+  courseId: number;
   _id: string;
+  title: string;
   category: string;
   price: Types.Decimal128;
-  skillLevel: 'allLevels' | 'beginner' | 'intermediate' | 'expert';
-  teacher: Types.ObjectId; // reference to Teacher collection
+  skillLevel: 'all' | 'beginner' | 'intermediate' | 'expert';
+  teacher: number;
   lastUpdate: Date;
   overview?: string | null;
 }

@@ -1,4 +1,5 @@
 interface userModel {
+  userId: number;
   _id: string;
   firstName?: string | null;
   lastName?: string | null;

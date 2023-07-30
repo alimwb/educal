@@ -1,4 +1,5 @@
 interface teacherModel {
+  teacherId: number;
   _id: string;
   firstName: string;
   lastName: string;

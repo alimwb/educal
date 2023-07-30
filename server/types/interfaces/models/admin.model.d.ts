@@ -1,4 +1,5 @@
 interface adminModel {
+  adminId: number;
   _id: string;
   firstName: string;
   lastName: string;

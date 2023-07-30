@@ -3,6 +3,7 @@ import { userModel } from '../types/interfaces/models';
 
 const { Schema } = mongoose;
 const User = mongoose.model('User', new Schema<userModel>({
+  userId: { type: Number, required: true },
   firstName: { type: String, default: null },
   lastName: { type: String, default: null },
   tel: { type: String, default: null },
