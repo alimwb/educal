@@ -11,6 +11,7 @@ const users = [
     password: bcrypt.hashSync('12345678', 16),
     email: encrypt('meysam@example.com'),
     avatarUrl: null,
+    avatarOriginal: null,
     joined: Date.now(),
   },
   {
@@ -22,6 +23,7 @@ const users = [
     password: bcrypt.hashSync('12345678', 16),
     email: encrypt('hamed@example.com'),
     avatarUrl: null,
+    avatarOriginal: null,
     joined: Date.now(),
   },
   {
@@ -33,6 +35,7 @@ const users = [
     password: bcrypt.hashSync('12345678', 16),
     email: encrypt('ehsan@example.com'),
     avatarUrl: null,
+    avatarOriginal: null,
     joined: Date.now(),
   },
   {
@@ -44,6 +47,7 @@ const users = [
     password: bcrypt.hashSync('12345678', 16),
     email: encrypt('nazanin@example.com'),
     avatarUrl: null,
+    avatarOriginal: null,
     joined: Date.now(),
   },
   {
@@ -55,6 +59,7 @@ const users = [
     password: bcrypt.hashSync('12345678', 16),
     email: encrypt('mohadeseh@example.com'),
     avatarUrl: null,
+    avatarOriginal: null,
     joined: Date.now(),
   },
 ]
