@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsc && dotenv -e .env.dev nodemon server.js",
     "build": "next build",
-    "start": "dotenv -e .env.production node server.js"
+    "start": "dotenv -e .env.production node server.js",
+    "seeddb": "dotenv -e .env.dev node seedDB/populator.js"
   },
   "keywords": [],
   "author": "",
