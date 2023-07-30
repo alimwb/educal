@@ -21,9 +21,9 @@ populate();
 
 async function populate() {
   await Promise.all([
-    users.forEach(user => User.create(user)),
-    teachers.forEach(teacher => Teacher.create(teacher)),
-    courses.forEach(course => Course.create(course)),
+    ...users.map(user => User.findOneAndUpdate({ userId: user.userId }, user, { upsert: true })),
+    ...teachers.map(teacher => Teacher.findOneAndUpdate({ teacherId: teacher.teacherId }, teacher, { upsert: true })),
+    ...courses.map(course => Course.findOneAndUpdate({ courseId: course.courseId }, course, { upsert: true })),
   ]);
 
   console.log('users count: ', await User.count());
