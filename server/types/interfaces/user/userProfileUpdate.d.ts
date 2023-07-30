@@ -5,6 +5,7 @@ interface userProfileUpdate {
   nationalId?: string | null;
   email?: string;
   avatarUrl?: string | null;
+  originalAvatarUrl?: string | null;
 }
 
 export { userProfileUpdate };

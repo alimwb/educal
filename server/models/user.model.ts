@@ -11,6 +11,7 @@ const User = mongoose.model('User', new Schema<userModel>({
   password: { type: String, required: true },
   email: { type: String, required: true },
   avatarUrl: { type: String, default: null },
+  originalAvatarUrl: { type: String, default: null },
   joined: { type: Date, default: Date.now(), required: true },
 }));
 

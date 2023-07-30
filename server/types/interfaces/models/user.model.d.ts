@@ -8,6 +8,7 @@ interface userModel {
   email: string;
   password: string;
   avatarUrl?: string | null;
+  originalAvatarUrl?: string | null;
   joined: Date;
 }
 

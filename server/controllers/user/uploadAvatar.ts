@@ -24,6 +24,11 @@ const controller = [
     }
 
     const reqUserObj = req.user as userModel;
+
+    if (reqUserObj.avatarUrl) {
+      await UserService.removeAvatarById(reqUserObj._id);
+    }
+
     const imgUrl = await UserService.uploadAvatarById(reqUserObj._id, req.file);
 
     res.json({

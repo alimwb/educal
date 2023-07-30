@@ -37,6 +37,7 @@ async function updateProfileById(this: typeof UserService, id: string, data: use
   user.firstName = 'firstName' in data ? data.firstName : user.firstName;
   user.lastName = 'lastName' in data ? data.lastName : user.lastName;
   user.avatarUrl = 'avatarUrl' in data ? data.avatarUrl : user.avatarUrl;
+  user.originalAvatarUrl = 'originalAvatarUrl' in data ? data.originalAvatarUrl : user.originalAvatarUrl;
   
   await User.updateOne({ _id: id }, user);
   return await this.decryptUserData(user);

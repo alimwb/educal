@@ -4,6 +4,8 @@ import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { envVars } from '../../config';
 import { rm } from 'fs/promises';
 import { createReadStream } from 'fs';
+import sharp from 'sharp';
+import { errorLogger } from '../../helpers/errors';
 
 /**
  * Upload user's avatar image.
@@ -14,24 +16,38 @@ import { createReadStream } from 'fs';
  */
 
 async function uploadAvatarById(this: typeof UserService, id: string, fileInfo: Express.Multer.File) {
-  const imgUrl = `/api/v1/img/${fileInfo.filename}`;
-  const fileReadStream = createReadStream(fileInfo.path);
+  const resizedFilePath = fileInfo.destination + `/${'100-100' + fileInfo.filename}`;
+  await sharp(fileInfo.path)
+    .resize(100, 100,)
+    .toFile(resizedFilePath);
+  const originalFileReadStream = createReadStream(fileInfo.path);
+  const resizedFileReadStream = createReadStream(resizedFilePath);
 
   await s3Cloud.send(new PutObjectCommand({
     Bucket: envVars.s3Bucket,
     Key: fileInfo.filename,
     ACL: 'public-read',
-    Body: fileReadStream,
+    Body: originalFileReadStream,
+  }));
+
+  await s3Cloud.send(new PutObjectCommand({
+    Bucket: envVars.s3Bucket,
+    Key: '100-100' + fileInfo.filename,
+    ACL: 'public-read',
+    Body: resizedFileReadStream,
   }));
   
-  fileReadStream.destroy();
-  rm(fileInfo.path);
+  originalFileReadStream.destroy();
+  resizedFileReadStream.destroy();
+  rm(fileInfo.path).catch(errorLogger.bind(null, { title: 'FILE REMOVAL ERROR' }));
+  rm(resizedFilePath).catch(errorLogger.bind(null, { title: 'FILE REMOVAL ERROR' }));
 
   await this.updateProfileById(id, {
-    avatarUrl: imgUrl,
+    avatarUrl: `100-100${fileInfo.filename}`,
+    originalAvatarUrl: `${fileInfo.filename}`,
   });
 
-  return imgUrl;
+  return `100-100${fileInfo.filename}`;
 }
 
 export { uploadAvatarById };

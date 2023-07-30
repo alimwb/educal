@@ -21,8 +21,14 @@ async function removeAvatarById(this: typeof UserService, id: string) {
     Key: user.avatarUrl,
   }));
 
+  await s3Cloud.send(new DeleteObjectCommand({
+    Bucket: envVars.s3Bucket,
+    Key: user.originalAvatarUrl as string,
+  }));
+
   await this.updateProfileById(user._id, {
     avatarUrl: null,
+    originalAvatarUrl: null,
   });
 }
 
