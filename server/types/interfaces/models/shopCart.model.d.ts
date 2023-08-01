@@ -4,8 +4,8 @@ import { courseModel } from "./course.model";
 interface shopCartModel {
   cartId: number;
   _id: string;
-  user: Types.ObjectId;
-  courses: Types.DocumentArray<courseModel>;
+  userId: number;
+  coursesIds: Types.DocumentArray<number>;
   totalPrice: Types.Decimal128;
   isPaid: boolean;
 }

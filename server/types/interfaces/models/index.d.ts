@@ -6,3 +6,4 @@ export * from './shopCart.model';
 export * from './teacher.model';
 export * from './transaction.model';
 export * from './user.model';
+export * from './counter.model';

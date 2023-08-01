@@ -1,9 +1,9 @@
-import mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 import { teacherModel } from '../types/interfaces/models';
+import { Counter } from './counter.model';
 
-const { Schema } = mongoose;
-const Teacher = mongoose.model('Teacher', new Schema<teacherModel>({
-  teacherId: { type: Number, required: true },
+const TeacherSchema = new Schema<teacherModel>({
+  teacherId: { type: Number, required: true, unique: true, index: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   role: { type: String, required: true },
@@ -13,6 +13,16 @@ const Teacher = mongoose.model('Teacher', new Schema<teacherModel>({
   fullAddress: { type: String, default: null },
   password: { type: String, required: true },
   creditCardNum: { type: String, default: null },
-}));
+});
 
-export { Teacher };
+TeacherSchema.pre('save', async function (next) {
+  const doc = await Counter.findOneAndUpdate({ collectionName: 'teachers' }, { $inc: { count: 1 } });
+
+  this.teacherId = doc?.count as number;
+
+  next();
+});
+
+const TeacherModel = model('Teacher', TeacherSchema);
+
+export { TeacherModel as Teacher };

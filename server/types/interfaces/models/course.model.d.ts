@@ -8,7 +8,7 @@ interface courseModel {
   category: string;
   price: Types.Decimal128;
   skillLevel: 'all' | 'beginner' | 'intermediate' | 'expert';
-  teacher: number;
+  teacherId: number;
   lastUpdate: Date;
   overview?: string | null;
 }

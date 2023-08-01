@@ -1,9 +1,9 @@
-import mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 import { adminModel } from '../types/interfaces/models';
+import { Counter } from './counter.model';
 
-const { Schema } = mongoose;
-const Admin = mongoose.model('Admin', new Schema<adminModel>({
-  adminId: { type: Number, required: true },
+const AdminSchema = new Schema<adminModel>({
+  adminId: { type: Number, required: true, unique: true, index: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   access: { type: String, required: true, enum: ['course', 'comment', 'transaction'] },
@@ -13,6 +13,16 @@ const Admin = mongoose.model('Admin', new Schema<adminModel>({
   fullAddress: { type: String, default: null },
   nationalId: { type: String, default: null },
   profilePicUrl: { type: String, default: null },
-}));
+});
 
-export { Admin };
+AdminSchema.pre('save', async function (next) {
+  const doc = await Counter.findOneAndUpdate({ collectionName: 'admins' }, { $inc: { count: 1 } });
+
+  this.adminId = doc?.count as number;
+
+  next();
+});
+
+const AdminModel = model('Admin', AdminSchema);
+
+export { AdminModel as Admin };
