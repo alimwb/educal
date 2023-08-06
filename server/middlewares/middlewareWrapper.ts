@@ -4,8 +4,11 @@ import { rm } from 'fs/promises';
 import { errorLogger } from '../helpers/errors';
 
 /**
- * This is a high-level middleware. It wraps the async middlewares inside a function 
+ * This is a high-order middleware. It wraps the async middlewares inside a function 
  * which handles all the errors thrown from them and also ends the request if it's needed.
+ * 
+ * If an error is thrown in the middleware chain, it checks for uploaded file(s) and removes them
+ * from the system if there's any.
  * 
  * @param middleware any user-defined middleware (3rd parties may have conflicts). accepted type: {@link middlewareWrapperParam}
  * @returns a middleware to be placed in express middleware chain
