@@ -339,6 +339,25 @@ paths:
                   type: string
                   example: backend
       
+  /course/{id}:
+    get:
+      tags:
+        - Course
+      security:
+        - {}
+      summary: Get a course details
+      description: Using this route, you can get a course's details.
+      responses:
+        200: 
+          description: The response contains the schema below.
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/course"
+        400:
+          $ref: "#/components/responses/res400"
+        404: 
+          $ref: "#/components/responses/res404"
 
 components:
   securitySchemes:
@@ -361,6 +380,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/error'
+    res404:
+      description: The route/resource you look for doesn't exist.
+      content:
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/error"
 
   schemas:
     error:
@@ -421,6 +446,56 @@ components:
           type: number
           description: Timestamp of the time when user first joined.
           example: 2023-07-25T06:41:35.730Z
+    course: 
+      type: object
+      properties:
+        courseId:
+          type: number
+          example: 3
+        title:
+          type: string
+          example: دوره Next.js مبتدی
+        coverUrl:
+          type: string
+          description: The name of the image. Access via "/api/v1/img/{coverUrl}".
+        category:
+          type: string
+          example: frontend
+        price:
+          type: string
+          example: '4500000'
+        skillLevel:
+          type: string
+          enum:
+            - all
+            - beginner
+            - intermediate
+            - expert
+        lastUpdate:
+          type: string
+          description: The string form of Date().
+        overview:
+          type: string
+          description: The description of the course.
+          example: دوره مبتدی نکست. مدرس آقای حسین کمالی.
+        rating:
+          type: number
+          example: 0
+        teacher:
+          type: object
+          properties:
+            teacherId: 
+              type: number
+              example: 2
+            fullName: 
+              type: string
+              example: حسین کمالی
+            role:
+              type: string
+              example: مدرس
+            profilePicUrl:
+              type: string
+              description: The name of the image. Access via "/api/v1/img/{profilePicUrl}".
     message:
       type: string
       description: A message to show to the user when the request is successful.
