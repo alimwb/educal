@@ -1,8 +1,8 @@
 interface getAllCoursesQuery {
   category?: string | string[];
   teacher?: string;
-  time?: string;
-  rating?: boolean;
+  date?: string;
+  rating?: string;
 }
 
 export { getAllCoursesQuery };

@@ -240,6 +240,86 @@ paths:
         401:
           $ref: "#/components/responses/res401"
       
+  /course/all:
+    get:
+      tags:
+        - Course
+      security:
+        - {}
+      summary: Get a list of courses
+      description: Get a list of all courses. You can provide a query to filter out the results.
+      parameters:
+        - name: category
+          in: query
+          description: An array of the categories of courses. You can get the list from <code>/api/v1/courses/categoriesList</code>.
+          schema:
+            type: string
+            example: backend
+        - name: teacher
+          in: query
+          description: The name of the course teacher.
+          schema:
+            type: string
+            example: حسین کمالی
+        - name: date
+          in: query
+          description: Sort results based on published date. Valid values are <code>asc</code>(old to new) and <code>desc</code>(new to old). Default to <code>desc</code>.
+          schema: 
+            type: string
+            example: asc
+            enum:
+              - asc
+              - desc
+        - name: rating
+          in: query
+          description: Sort results based on published date. Valid values are <code>asc</code>(low to high) and <code>desc</code>(high to low). Default to <code>desc</code>.
+          schema: 
+            type: boolean
+            example: true
+            enum:
+              - asc 
+              - desc 
+      responses:
+        200:
+          description: The result contains an array of the object schema below or an empty array if there's no record matching the query.
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  courses: 
+                    type: array
+                    items:
+                      properties:
+                        courseId:
+                          type: number
+                          example: 2
+                        title:
+                          type: string
+                          example: <span dir="rtl">دوره مبتدی React.js</span>
+                        coverUrl:
+                          type: string
+                          description: The name of the image. Access via "/api/v1/img/{coverUrl}".
+                          example: image.jpg
+                        category: 
+                          type: string
+                          example: frontend
+                        reting:
+                          type: number
+                          example: 4
+                        teacher:
+                          type: object
+                          properties:
+                            teacherId:
+                              type: number
+                              example: 2
+                            fullName:
+                              type: string
+                              example: حسین کمالی
+                  count: 
+                    type: number
+                    example: 10
+
 
 components:
   securitySchemes:

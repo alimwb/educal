@@ -3,6 +3,7 @@ import { ForbiddenErr } from "../../helpers/errors";
 import { User } from "../../models";
 import { UserService } from "./user.service";
 import { userProfileUpdate } from "../../types/interfaces/user";
+
 /**
  * Update a user's info with new data from client.
  * If `tel` or `email` fields are provided, their uniqueness will be checked.
