@@ -4,7 +4,7 @@ const swaggerUI = require('swagger-ui-express');
 const YAML = require('yaml');
 const fs = require('fs');
 const { envVars } = require('./built/config/envVars');
-const { authRouter, userRouter } = require('./built/routers')
+const { authRouter, userRouter, courseRouter } = require('./built/routers')
 const { createNotFoundErr } = require('./built/helpers/errors/createNotFoundErr');
 const { errorHandler } = require('./built/helpers/errors/errorHandler');
 const mongoose = require('mongoose');
@@ -36,6 +36,7 @@ app.prepare().then(async () => {
   server.use(`/api/v1/docs`, swaggerUI.serve, swaggerUI.setup(swaggerDoc));
   server.use(`/api/v1/auth`, authRouter);
   server.use('/api/v1/user', userRouter);
+  server.use('/api/v1/course', courseRouter);
 
   // handle errors
   server.use('/api/*', createNotFoundErr);
