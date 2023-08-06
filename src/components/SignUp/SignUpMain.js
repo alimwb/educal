@@ -33,7 +33,6 @@ const SignUpMain = () => {
                 type: 'AUTH_USER_DATA',
                 authData: response.data.user
             });
-            console.log(response.data);
             toast.success(response.data.message, {
                 position: "top-right",
                 autoClose: 3000,
@@ -48,7 +47,6 @@ const SignUpMain = () => {
             setTimeout(() => router.push('/'), 3000);
         })
             .catch(error => {
-                console.log(error)
                 toast.error(JSON.parse(error.request.response).errors[0].message, {
                     position: "top-right",
                     autoClose: 3000,
@@ -98,7 +96,6 @@ const SignUpMain = () => {
                                         }}
                                         validationSchema={validationSchema}
                                         onSubmit={(values, { setSubmitting }) => {
-                                            console.log('lll');
                                             SignUpSubmit(values)
                                             setSubmitting(false);
                                         }}

@@ -42,7 +42,6 @@ const SignInMain = () => {
             setTimeout(() => router.push('/'), 3000);
         })
             .catch(error => {
-                console.log(error)
                 toast.error(JSON.parse(error.request.response).errors[0].message, {
                     position: "top-right",
                     autoClose: 3000,

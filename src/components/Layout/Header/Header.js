@@ -236,7 +236,6 @@ const Header = (props) => {
 
 
 const mapStateToProps = (state) => {
-   console.log(state);
    const { authData } = state.authData;
    return { authData }
 };
