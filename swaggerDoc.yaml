@@ -320,6 +320,25 @@ paths:
                     type: number
                     example: 10
 
+  /course/categoriesList:
+    get:
+      tags:
+        - Course
+      security:
+        - {}
+      summary: Get categories list
+      description: You'll be given a list of all available categories.
+      responses:
+        200: 
+          description: The response is an array of strings.
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+                  example: backend
+      
 
 components:
   securitySchemes:
