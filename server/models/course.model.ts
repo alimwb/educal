@@ -23,6 +23,12 @@ CourseSchema.virtual('teacher', {
   foreignField: 'teacherId',
 });
 
+CourseSchema.virtual('ratings', {
+  ref: 'Rating',
+  localField: 'courseId',
+  foreignField: 'courseId',
+});
+
 CourseSchema.pre('save', async function (next) {
   const doc = await Counter.findOneAndUpdate({ collectionName: 'courses' }, { $inc: { count: 1 } });
 

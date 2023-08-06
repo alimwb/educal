@@ -4,8 +4,7 @@ import { Counter } from './counter.model';
 
 const TeacherSchema = new Schema<teacherModel>({
   teacherId: { type: Number, required: true, unique: true, index: true },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  fullName: { type: String, required: true },
   role: { type: String, required: true },
   profilePicUrl: { type: String, default: null },
   tel: { type: String, required: true },
