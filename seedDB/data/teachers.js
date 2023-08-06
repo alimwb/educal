@@ -4,8 +4,7 @@ const bcrypt = require('bcryptjs');
 const teachers = [
   {
     teacherId: 1,
-    firstName: 'کامیار',
-    lastName: 'حسنی',
+    fullName: 'کامیار حسنی',
     role: 'مدرس',
     profliePicUrl: null,
     tel: encrypt('09101234567'),
@@ -16,8 +15,7 @@ const teachers = [
   },
   {
     teacherId: 2,
-    firstName: 'حسین',
-    lastName: 'کمالی',
+    fullName: 'حسین کمالی',
     role: 'مدرس',
     profliePicUrl: null,
     tel: encrypt('09101234568'),
@@ -28,8 +26,7 @@ const teachers = [
   },
   {
     teacherId: 3,
-    firstName: 'سعید',
-    lastName: 'محمدی',
+    fullName: 'سعید محمدی',
     role: 'مدرس',
     profliePicUrl: null,
     tel: encrypt('09101234569'),
@@ -40,8 +37,7 @@ const teachers = [
   },
   {
     teacherId: 4,
-    firstName: 'کوروش',
-    lastName: 'اکبری',
+    fullName: 'کوروش اکبری',
     role: 'مدرس',
     profliePicUrl: null,
     tel: encrypt('09101234563'),
@@ -52,8 +48,7 @@ const teachers = [
   },
   {
     teacherId: 5,
-    firstName: 'سیامک',
-    lastName: 'جوادی',
+    fullName: 'سیامک جوادی',
     role: 'مدرس',
     profliePicUrl: null,
     tel: encrypt('09101234564'),
