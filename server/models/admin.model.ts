@@ -3,7 +3,7 @@ import { adminModel } from '../types/interfaces/models';
 import { Counter } from './counter.model';
 
 const AdminSchema = new Schema<adminModel>({
-  adminId: { type: Number, required: true, unique: true, index: true },
+  _id: { type: Number },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   access: { type: String, required: true, enum: ['course', 'comment', 'transaction'] },
@@ -18,7 +18,7 @@ const AdminSchema = new Schema<adminModel>({
 AdminSchema.pre('save', async function (next) {
   const doc = await Counter.findOneAndUpdate({ collectionName: 'admins' }, { $inc: { count: 1 } });
 
-  this.adminId = doc?.count as number;
+  this._id = doc?.count as number;
 
   next();
 });

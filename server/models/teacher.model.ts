@@ -3,7 +3,7 @@ import { teacherModel } from '../types/interfaces/models';
 import { Counter } from './counter.model';
 
 const TeacherSchema = new Schema<teacherModel>({
-  teacherId: { type: Number, required: true, unique: true, index: true },
+  _id: { type: Number },
   fullName: { type: String, required: true },
   role: { type: String, required: true },
   profilePicUrl: { type: String, default: null },
@@ -17,7 +17,7 @@ const TeacherSchema = new Schema<teacherModel>({
 TeacherSchema.pre('save', async function (next) {
   const doc = await Counter.findOneAndUpdate({ collectionName: 'teachers' }, { $inc: { count: 1 } });
 
-  this.teacherId = doc?.count as number;
+  this._id = doc?.count as number;
 
   next();
 });

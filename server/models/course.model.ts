@@ -4,7 +4,7 @@ import { Counter } from './counter.model';
 
 const CourseSchema = new Schema<courseModel>(
   {
-    courseId: { type: Number, required: true, unique: true, index: true },
+    _id: { type: Number },
     title: { type: String, required: true },
     coverUrl: { type: String, default: null },
     category: { type: String, required: true },
@@ -20,19 +20,19 @@ const CourseSchema = new Schema<courseModel>(
 CourseSchema.virtual('teacher', {
   ref: 'Teacher',
   localField: 'teacherId',
-  foreignField: 'teacherId',
+  foreignField: '_id',
 });
 
 CourseSchema.virtual('ratings', {
   ref: 'Rating',
   localField: 'courseId',
-  foreignField: 'courseId',
+  foreignField: '_id',
 });
 
 CourseSchema.pre('save', async function (next) {
-  const doc = await Counter.findOneAndUpdate({ collectionName: 'courses' }, { $inc: { count: 1 } });
+  const doc = await Counter.findOneAndUpdate({ collectionName: 'courses' }, { $inc: { count: 1 } }, { upsert: true });
 
-  this.courseId = doc?.count as number;
+  this._id = doc?.count ?? 0;
 
   next();
 });

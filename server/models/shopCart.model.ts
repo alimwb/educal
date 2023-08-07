@@ -4,7 +4,7 @@ import { Counter } from './counter.model';
 
 const ShopCartSchema = new Schema<shopCartModel>(
   {
-    cartId: { type: Number, required: true, unique: true, index: true },
+    _id: { type: Number },
     userId: { type: Number, required: true },
     coursesIds: [{ type: Number, required: true }],
     totalPrice: { type: Schema.Types.Decimal128, required: true },
@@ -16,19 +16,19 @@ const ShopCartSchema = new Schema<shopCartModel>(
 ShopCartSchema.virtual('user', {
   ref: 'User',
   localField: 'userId',
-  foreignField: 'userId',
+  foreignField: '_id',
 });
 
 ShopCartSchema.virtual('courses', {
   ref: 'Course',
   localField: 'coursesIds',
-  foreignField: 'courseId',
+  foreignField: '_id',
 });
 
 ShopCartSchema.pre('save', async function (next) {
   const doc = await Counter.findOneAndUpdate({ collectionName: 'shopcarts' }, { $inc: { count: 1 } });
 
-  this.cartId = doc?.count as number;
+  this._id = doc?.count as number;
 
   next();
 });

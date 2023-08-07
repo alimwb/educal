@@ -4,7 +4,7 @@ import { Counter } from './counter.model';
 
 const DiscountSchema = new Schema<discountModel>(
   {
-    discountId: { type: Number, required: true, unique: true, index: true },
+    _id: { type: Number },
     userId: { type: Number, default: null },
     courseId: { type: Number, default: null },
     code: { type: String, required: true },
@@ -18,19 +18,19 @@ const DiscountSchema = new Schema<discountModel>(
 DiscountSchema.virtual('user', {
   ref: 'User',
   localField: 'userId',
-  foreignField: 'userId',
+  foreignField: '_id',
 });
 
 DiscountSchema.virtual('course', {
   ref: 'Course',
   localField: 'courseId',
-  foreignField: 'courseId',
+  foreignField: '_id',
 });
 
 DiscountSchema.pre('save', async function (next) {
   const doc = await Counter.findOneAndUpdate({ collectionName: 'discounts' }, { $inc: { count: 1 } });
 
-  this.discountId = doc?.count as number;
+  this._id = doc?.count as number;
 
   next();
 });

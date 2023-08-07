@@ -3,7 +3,7 @@ import { userModel } from '../types/interfaces/models';
 import { Counter } from './counter.model';
 
 const UserSchema = new Schema<userModel>({
-  userId: { type: Number, required: true, unique: true, index: true },
+  _id: { type: Number },
   firstName: { type: String, default: null },
   lastName: { type: String, default: null },
   tel: { type: String, default: null },
@@ -18,7 +18,7 @@ const UserSchema = new Schema<userModel>({
 UserSchema.pre('save', async function (next) {
   const doc = await Counter.findOneAndUpdate({ collectionName: 'users' }, { $inc: { count: 1 } });
 
-  this.userId = doc?.count as number;
+  this._id = doc?.count as number;
 
   next();
 });

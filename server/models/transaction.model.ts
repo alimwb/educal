@@ -4,7 +4,7 @@ import { Counter } from './counter.model';
 
 const TransactionSchema = new Schema<transactionModel>(
   {
-    transactionId: { type: Number, required: true, unique: true, index: true },
+    _id: { type: Number },
     userId: { type: Number, required: true },
     cartId: { type: Number, required: true },
     checkout: { type: Schema.Types.Decimal128, required: true },
@@ -17,19 +17,19 @@ const TransactionSchema = new Schema<transactionModel>(
 TransactionSchema.virtual('user', {
   ref: 'User',
   localField: 'userId',
-  foreignField: 'userId',
+  foreignField: '_id',
 });
 
 TransactionSchema.virtual('cart', {
   ref: 'ShopCart',
   localField: 'cartId',
-  foreignField: 'cartId',
+  foreignField: '_id',
 });
 
 TransactionSchema.pre('save', async function (next) {
   const doc = await Counter.findOneAndUpdate({ collectionName: 'transactions' }, { $inc: { count: 1 } });
 
-  this.transactionId = doc?.count as number;
+  this._id = doc?.count as number;
 
   next();
 });
