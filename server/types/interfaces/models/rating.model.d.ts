@@ -1,6 +1,6 @@
 interface ratingModel {
   ratingId: number;
-  _id: string;
+  _id: number;
   userId: number;
   courseId: number;
   rate: number;

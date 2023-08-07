@@ -1,30 +1,30 @@
 const ratings = [
   {
-    ratingId: 1,
+    // _id: 1,
     userId: 1,
     courseId: 1,
     rate: 4,
   },
   {
-    ratingId: 2,
+    // _id: 2,
     userId: 2,
     courseId: 1,
     rate: 3,
   },
   {
-    ratingId: 3,
+    // _id: 3,
     userId: 3,
     courseId: 1,
     rate: 5,
   },
   {
-    ratingId: 4,
+    // _id: 4,
     userId: 4,
     courseId: 1,
     rate: 5,
   },
   {
-    ratingId: 5,
+    // _id: 5,
     userId: 5,
     courseId: 1,
     rate: 3,

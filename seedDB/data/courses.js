@@ -1,6 +1,6 @@
 const courses = [
   {
-    courseId: 1,
+    // _id: 1,
     title: 'دوره Node.js پیشرفته',
     coverUrl: null,
     category: 'backend',
@@ -11,7 +11,7 @@ const courses = [
     overview: 'دوره نود جی‌اس پیشرفته. مدرس آقای کامیار حسنی.',
   },
   {
-    courseId: 2,
+    // _id: 2,
     title: 'دوره React.js پیشرفته',
     coverUrl: null,
     category: 'frontend',
@@ -22,7 +22,7 @@ const courses = [
     overview: 'دوره ری‌اکت پیشرفته. مدرس آقای حسین کمالی.',
   },
   {
-    courseId: 3,
+    // _id: 3,
     title: 'دوره Next.js مبتدی',
     coverUrl: null,
     category: 'frontend',
@@ -33,7 +33,7 @@ const courses = [
     overview: 'دوره مبتدی نکست. مدرس آقای حسین کمالی.',
   },
   {
-    courseId: 4,
+    // _id: 4,
     title: 'دوره devops',
     coverUrl: null,
     category: 'system',
@@ -44,7 +44,7 @@ const courses = [
     overview: 'دوره دواپس. مدرس آقای سیامک جوادی.',
   },
   {
-    courseId: 5,
+    // _id: 5,
     title: 'دوره JavaScript مبتدی',
     coverUrl: null,
     category: 'programming',

@@ -1,8 +1,7 @@
 import { Types } from "mongoose";
 
 interface transactionModel {
-  transactionId: number;
-  _id: string;
+  _id: number;
   userId: number; // reference to User collection
   cartId: number; // reference to Cart collection
   checkout: Types.Decimal128;

@@ -1,6 +1,5 @@
 interface teacherModel {
-  teacherId: number;
-  _id: string;
+  _id: number;
   fullName: string;
   role: string;
   profilePicUrl?: string | null;

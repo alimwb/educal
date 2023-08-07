@@ -1,6 +1,5 @@
 interface adminModel {
-  adminId: number;
-  _id: string;
+  _id: number;
   firstName: string;
   lastName: string;
   access: 'course' | 'comment' | 'transaction';

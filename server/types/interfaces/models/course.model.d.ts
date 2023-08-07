@@ -1,8 +1,7 @@
 import { Types } from "mongoose";
 
 interface courseModel {
-  courseId: number;
-  _id: string;
+  _id: number;
   title: string;
   coverUrl?: string;
   category: string;

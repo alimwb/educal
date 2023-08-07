@@ -15,6 +15,7 @@ const {
 
 populate();
 // removeAll();
+// createCounters();
 
 async function populate() {
   const {
@@ -26,10 +27,10 @@ async function populate() {
 
   await removeAll();
   await Promise.all([
-    ...users.map(user => User.updateOne({ userId: user.userId }, user, { upsert: true })),
-    ...teachers.map(teacher => Teacher.updateOne({ teacherId: teacher.teacherId }, teacher, { upsert: true })),
-    ...courses.map(course => Course.updateOne({ courseId: course.courseId }, course, { upsert: true })),
-    ...ratings.map(rate => Rating.updateOne({ ratingId: rate.ratingId }, rate, { upsert: true })),
+    ...users.map(user => User.create(user)),
+    ...teachers.map(teacher => Teacher.create(teacher)),
+    ...courses.map(course => Course.create(course)),
+    ...ratings.map(rate => Rating.create(rate)),
   ]);
 
   console.log('users count: ', await User.count());
@@ -46,11 +47,18 @@ async function removeAll() {
     Teacher.deleteMany({}),
     Course.deleteMany({}),
     Rating.deleteMany({}),
-    Counter.updateMany({}, { count: 6 }),
+    Counter.updateMany({}, { count: 1 }),
   ]);
 
   console.log('users removed: ', count[0]);
   console.log('teachers removed: ', count[1]);
   console.log('courses removed: ', count[2]);
   console.log('ratings removed: ', count[3]);
+}
+
+async function createCounters() {
+  Counter.create({ collectionName: 'users', count: 1 }).then(console.log.bind(console));
+  Counter.create({ collectionName: 'teachers', count: 1 }).then(console.log.bind(console));
+  Counter.create({ collectionName: 'courses', count: 1 }).then(console.log.bind(console));
+  Counter.create({ collectionName: 'ratings', count: 1 }).then(console.log.bind(console));
 }

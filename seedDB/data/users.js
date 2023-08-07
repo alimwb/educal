@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const users = [
   {
-    userId: 1,
+    // _id: 1,
     firstName: 'میثم',
     lastName: 'رحمانی',
     tel: encrypt('09012345678'),
@@ -15,7 +15,7 @@ const users = [
     joined: Date.now(),
   },
   {
-    userId: 2,
+    // _id: 2,
     firstName: 'حامد',
     lastName: 'وکیلی',
     tel: encrypt('09012345679'),
@@ -27,7 +27,7 @@ const users = [
     joined: Date.now(),
   },
   {
-    userId: 3,
+    // _id: 3,
     firstName: 'احسان',
     lastName: 'هنرمند',
     tel: encrypt('09012345670'),
@@ -39,7 +39,7 @@ const users = [
     joined: Date.now(),
   },
   {
-    userId: 4,
+    // _id: 4,
     firstName: 'نازنین',
     lastName: 'ولی پور',
     tel: encrypt('09012345671'),
@@ -51,7 +51,7 @@ const users = [
     joined: Date.now(),
   },
   {
-    userId: 5,
+    // _id: 5,
     firstName: 'محدثه',
     lastName: 'جمکرانی',
     tel: encrypt('09012345672'),

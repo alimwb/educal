@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const teachers = [
   {
-    teacherId: 1,
+    // _id: 1,
     fullName: 'کامیار حسنی',
     role: 'مدرس',
     profliePicUrl: null,
@@ -14,7 +14,7 @@ const teachers = [
     creditCardNum: encrypt('1122334455667788'),
   },
   {
-    teacherId: 2,
+    // _id: 2,
     fullName: 'حسین کمالی',
     role: 'مدرس',
     profliePicUrl: null,
@@ -25,7 +25,7 @@ const teachers = [
     creditCardNum: encrypt('1122334455667781'),
   },
   {
-    teacherId: 3,
+    // _id: 3,
     fullName: 'سعید محمدی',
     role: 'مدرس',
     profliePicUrl: null,
@@ -36,7 +36,7 @@ const teachers = [
     creditCardNum: encrypt('1122334455667782'),
   },
   {
-    teacherId: 4,
+    // _id: 4,
     fullName: 'کوروش اکبری',
     role: 'مدرس',
     profliePicUrl: null,
@@ -47,7 +47,7 @@ const teachers = [
     creditCardNum: encrypt('1122334455667783'),
   },
   {
-    teacherId: 5,
+    // _id: 5,
     fullName: 'سیامک جوادی',
     role: 'مدرس',
     profliePicUrl: null,

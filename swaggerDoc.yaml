@@ -291,7 +291,7 @@ paths:
                     type: array
                     items:
                       properties:
-                        courseId:
+                        _id:
                           type: number
                           example: 2
                         title:
@@ -310,7 +310,7 @@ paths:
                         teacher:
                           type: object
                           properties:
-                            teacherId:
+                            _id:
                               type: number
                               example: 2
                             fullName:
@@ -414,6 +414,9 @@ components:
     user:
       type: object
       properties:
+        _id: 
+          type: number
+          example: 1
         firstName:
           type: string
           description: User's first name.
@@ -449,7 +452,7 @@ components:
     course: 
       type: object
       properties:
-        courseId:
+        _id:
           type: number
           example: 3
         title:
@@ -484,7 +487,7 @@ components:
         teacher:
           type: object
           properties:
-            teacherId: 
+            _id: 
               type: number
               example: 2
             fullName: 

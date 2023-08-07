@@ -1,6 +1,5 @@
 interface userModel {
-  userId: number;
-  _id: string;
+  _id: number;
   firstName?: string | null;
   lastName?: string | null;
   tel?: string | null;
