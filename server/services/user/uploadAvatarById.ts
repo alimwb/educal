@@ -15,7 +15,7 @@ import { errorLogger } from '../../helpers/errors';
  * @returns relatve url to the image.
  */
 
-async function uploadAvatarById(this: typeof UserService, id: string, fileInfo: Express.Multer.File) {
+async function uploadAvatarById(this: typeof UserService, id: number, fileInfo: Express.Multer.File) {
   const resizedFilePath = fileInfo.destination + `/${'100-100' + fileInfo.filename}`;
   await sharp(fileInfo.path)
     .resize(100, 100,)

@@ -13,7 +13,7 @@ import { userProfileUpdate } from "../../types/interfaces/user";
  * @returns user's data
  */
 
-async function updateProfileById(this: typeof UserService, id: string, data: userProfileUpdate) {
+async function updateProfileById(this: typeof UserService, id: number, data: userProfileUpdate) {
   const user = await this.getUserById(id);
 
   if (data.email && (user.email !== data.email)) {

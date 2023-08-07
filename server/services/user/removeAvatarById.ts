@@ -9,7 +9,7 @@ import { DeleteObjectCommand } from "@aws-sdk/client-s3";
  * @param id The user's id to remove the avatar image of
  */
 
-async function removeAvatarById(this: typeof UserService, id: string) {
+async function removeAvatarById(this: typeof UserService, id: number) {
   const user = await this.getUserById(id);
 
   if (!user.avatarUrl) {

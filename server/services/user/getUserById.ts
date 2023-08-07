@@ -11,7 +11,7 @@ import { UserService } from "./user.service";
  * @returns user's data
  */
 
-async function getUserById(this: typeof UserService, id: string) {
+async function getUserById(this: typeof UserService, id: number) {
   const user = await User.findById(id);
 
   if (user === null) {

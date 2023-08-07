@@ -22,7 +22,7 @@ async function getAllCoursesByQueryCount(this: typeof CourseService, query: getA
       $lookup: {
         from: 'teachers',
         localField: 'teacherId',
-        foreignField: 'teacherId',
+        foreignField: '_id',
         as: 'teacher',
         pipeline: [{ $project: { teacherId: true, fullName: true } }],
       },

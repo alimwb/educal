@@ -30,7 +30,7 @@ async function getAllCoursesByQuery(this: typeof CourseService, query: getAllCou
       $lookup: {
         from: 'teachers',
         localField: 'teacherId',
-        foreignField: 'teacherId',
+        foreignField: '_id',
         as: 'teacher',
         pipeline: [{ $project: { teacherId: true, fullName: true } }],
       },
@@ -42,7 +42,7 @@ async function getAllCoursesByQuery(this: typeof CourseService, query: getAllCou
       $lookup: {
         from: 'ratings',
         localField: 'courseId',
-        foreignField: 'courseId',
+        foreignField: '_id',
         as: 'rating',
         pipeline: [{ $group: { _id: 'courseId', avg: { $avg: '$rate' } } }],
       },
