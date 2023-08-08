@@ -32,7 +32,7 @@ async function getAllCoursesByQueryCount(this: typeof CourseService, query: getA
     { $count: 'count' }
   ])
 
-  return coursesCount[0].count;
+  return coursesCount[0]?.count ?? 0;
 }
 
 export { getAllCoursesByQueryCount };
