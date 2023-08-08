@@ -304,9 +304,12 @@ paths:
                         category: 
                           type: string
                           example: frontend
-                        reting:
+                        rating:
                           type: number
                           example: 4
+                        price: 
+                          type: string
+                          example: 4500000
                         teacher:
                           type: object
                           properties:

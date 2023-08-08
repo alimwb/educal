@@ -52,6 +52,7 @@ async function getAllCoursesByQuery(this: typeof CourseService, query: getAllCou
         rating: {
           $max: [{ $getField: { field: 'avg', input: { $first: '$rating' } } }, 0],
         },
+        price: { $toString: '$price' },
       },
     },
     {
@@ -62,6 +63,7 @@ async function getAllCoursesByQuery(this: typeof CourseService, query: getAllCou
         category: true,
         teacher: true,
         rating: true,
+        price: true,
       },
     },
     date ? { $sort: { courseId: date === 'asc' ? 1 : -1 } } : { $skip: 0 },
