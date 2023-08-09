@@ -1,5 +1,13 @@
-import { Router } from "express";
-import { getProfile, updateProfile, logout, uploadAvatar, removeAvatar, addCourseToCart } from "../controllers/user";
+import { Router } from 'express';
+import {
+  getProfile,
+  updateProfile,
+  logout,
+  uploadAvatar,
+  removeAvatar,
+  addCourseToCart,
+  getCart,
+} from '../controllers/user';
 
 const router = Router();
 
@@ -12,6 +20,8 @@ router.put('/profile/avatar/upload', uploadAvatar);
 router.delete('/profile/avatar/remove', removeAvatar);
 
 router.put('/cart/add/:courseId', addCourseToCart);
+
+router.get('/cart', getCart);
 
 router.post('/logout', logout);
 

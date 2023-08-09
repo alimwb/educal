@@ -270,6 +270,43 @@ paths:
         401:
           $ref: "#/components/responses/res401"
 
+  /user/cart:
+    get:
+      tags:
+        - User
+      security:
+        - { authToken: [] }
+      summary: Get user's shopping cart
+      description: User must be logged in.
+      responses:
+        200: 
+          description: The response is an array containing the object below.
+          content:
+            application/json: 
+              schema: 
+                type: object
+                properties:
+                  courses: 
+                    type: array
+                    items:
+                      properties:
+                        _id:
+                          type: number
+                          example: 2
+                        title:
+                          type: string
+                          example: <span dir="rtl">دوره مبتدی React.js</span>
+                        coverUrl:
+                          type: string
+                          description: The name of the image. Access via "/api/v1/img/{coverUrl}".
+                          example: image.jpg
+                        price:
+                          type: string
+                          example: "4500000"
+                  totalPrice:
+                    type: string
+                    example: "4500000"
+
   /course/all:
     get:
       tags:
