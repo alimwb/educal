@@ -1,9 +1,16 @@
 import { NotFoundErr } from '../../helpers/errors';
 import { CourseService } from './course.service';
 
+/**
+ * Get the course's data by its id. If there's no course with this id, a NotFoundErr will be thrown.
+ * 
+ * @param id The id of the target course
+ * @returns Course's data
+ */
+
 async function getCourseById(this: typeof CourseService, id: number) {
-  const course = await this.model.aggregate([
-    { $match: { courseId: id } },
+  const course = await this.courses.aggregate([
+    { $match: { _id: id } },
     {
       $lookup: {
         from: 'teachers',
@@ -30,11 +37,11 @@ async function getCourseById(this: typeof CourseService, id: number) {
       },
     },
     {
-      $project: { _id: false, __v: false, teacherId: false },
+      $project: { __v: false, teacherId: false },
     },
   ]);
 
-  if (course === null) {
+  if (course.length === 0) {
     throw new NotFoundErr('دوره پیدا نشد');
   }
 
