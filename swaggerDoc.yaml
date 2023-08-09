@@ -307,6 +307,34 @@ paths:
                     type: string
                     example: "4500000"
 
+  /user/cart/remove/{courseId}:
+    delete:
+      tags:
+        - User
+      security:
+        - { authToken: [] }
+      summary: Remove a course from shop cart
+      description: User must be logged in.
+      parameters:
+        - name: courseId
+          in: path
+          required: true
+          schema:
+            type: number
+            example: 1
+      responses:
+        200: 
+          description: Course is removed. 
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message: 
+                    $ref: "#/components/schemas/message"
+        400:
+          description: The parameter is not valid. You will also get this response if there's no items in the shopping cart or the user hasn't added the specified course, yet.
+
   /course/all:
     get:
       tags:

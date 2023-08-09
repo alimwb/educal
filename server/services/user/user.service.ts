@@ -15,6 +15,7 @@ import {
   userHasCart,
   addCourseToCart,
   getCart,
+  removeCourseFromCart,
 } from './';
 
 class UserService {
@@ -36,6 +37,7 @@ class UserService {
   static userHasCart = userHasCart;
   static addCourseToCart = addCourseToCart;
   static getCart = getCart;
+  static removeCourseFromCart = removeCourseFromCart;
 }
 
 export { UserService };

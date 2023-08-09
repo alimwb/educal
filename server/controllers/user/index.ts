@@ -5,3 +5,4 @@ export * from './uploadAvatar';
 export * from './removeAvatar';
 export * from './addCourseToCart';
 export * from './getCart';
+export * from './removeCourseFromCart';

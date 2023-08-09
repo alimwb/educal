@@ -13,3 +13,4 @@ export * from './removeAvatarById';
 export * from './userHasCart';
 export * from './addCourseToCart';
 export * from './getCart';
+export * from './removeCourseFromCart';
