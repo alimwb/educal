@@ -10,6 +10,15 @@ type cartDataType = shopCartModel & {
   }[];
 };
 
+/**
+ * This method returns the shopping cart record of the user, if there's any.
+ * 
+ * The courses are populated into `courses` field.
+ * 
+ * @param userId The target user id.
+ * @returns refer to {@link cartDataType}
+ */
+
 async function getCart(this: typeof UserService, userId: number): Promise<cartDataType | null> {
   const cart = await this.carts.aggregate([
     { $match: { userId, isPaid: false } },
