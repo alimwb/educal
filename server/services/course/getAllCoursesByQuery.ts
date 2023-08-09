@@ -24,7 +24,7 @@ import { CourseService } from './course.service';
 async function getAllCoursesByQuery(this: typeof CourseService, query: getAllCoursesQuery) {
   const { category, teacher, date, rating } = query;
 
-  const courses = await this.model.aggregate([
+  const courses = await this.courses.aggregate([
     category ? { $match: { category: Array.isArray(category) ? { $in: category } : category } } : { $skip: 0 },
     {
       $lookup: {

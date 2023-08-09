@@ -7,7 +7,7 @@ import { CourseService } from "./course.service";
  */
 
 async function getAllCetegories(this: typeof CourseService) {
-  const categories = await this.model.distinct('category');
+  const categories = await this.courses.distinct('category');
 
   return categories;
 }
