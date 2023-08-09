@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getProfile, updateProfile, logout, uploadAvatar, removeAvatar } from "../controllers/user";
+import { getProfile, updateProfile, logout, uploadAvatar, removeAvatar, addCourseToCart } from "../controllers/user";
 
 const router = Router();
 
@@ -10,6 +10,8 @@ router.put('/profile/update', updateProfile);
 router.put('/profile/avatar/upload', uploadAvatar);
 
 router.delete('/profile/avatar/remove', removeAvatar);
+
+router.put('/cart/add/:courseId', addCourseToCart);
 
 router.post('/logout', logout);
 

@@ -239,7 +239,37 @@ paths:
           $ref: "#/components/responses/res400"
         401:
           $ref: "#/components/responses/res401"
-      
+
+  /user/cart/add/{courseId}:
+    put: 
+      tags:
+        - User
+      security:
+        - { authToken: [] }
+      summary: Add a course tot cart
+      description: User must be logged in. Using this route, you can add a course to user's shop cart by course id. 
+      parameters:
+        - name: courseId
+          in: path
+          required: true
+          schema: 
+            type: number
+            example: 1
+      responses:
+        200: 
+          description: The course is added to cart. You can see the cart at <code>/user/cart</code>.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: 
+                    $ref: "#/components/schemas/message"
+        400:
+          $ref: "#/components/responses/res400"
+        401:
+          $ref: "#/components/responses/res401"
+
   /course/all:
     get:
       tags:
