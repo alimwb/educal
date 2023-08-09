@@ -15,7 +15,7 @@ import { CourseService } from './course.service';
  * 7. select only the wanted fields,
  * 8. sort the records by date (courseId) then by its rating averate (rateAvg) if they are wanted from client.
  * 
- * NOTE: The stage {$skip: 0} is just used to skip aggregation empty stage error.
+ * NOTE: The stage {$skip: 0} is just used to avoid aggregation empty stage error.
  *
  * @param query The query options received from client
  * @returns An array of courses
