@@ -1,4 +1,4 @@
-import { UserService } from "./user.service";
+import { ShopCartService } from "./shopCart.service";
 
 /**
  * Checks if the user has any shopping cart in the database.
@@ -7,7 +7,7 @@ import { UserService } from "./user.service";
  * @returns true if there's a cart, otherwise false
  */
 
-async function userHasCart(this: typeof UserService, id: number) {
+async function userHasCart(this: typeof ShopCartService, id: number) {
   const cart = await this.carts.findOne({ userId: id, isPaid: false }).select('_id');
 
   if (cart) {

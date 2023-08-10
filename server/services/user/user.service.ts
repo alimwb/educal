@@ -1,4 +1,4 @@
-import { User, ShopCart } from '../../models';
+import { User } from '../../models';
 import {
   getUserByEmail,
   login,
@@ -12,15 +12,10 @@ import {
   updateProfileById,
   uploadAvatarById,
   removeAvatarById,
-  userHasCart,
-  addCourseToCart,
-  getCart,
-  removeCourseFromCart,
 } from './';
 
 class UserService {
   static users = User;
-  static carts = ShopCart;
 
   static getUserByEmail = getUserByEmail;
   static login = login;
@@ -34,10 +29,6 @@ class UserService {
   static updateProfileById = updateProfileById;
   static uploadAvatarById = uploadAvatarById;
   static removeAvatarById = removeAvatarById;
-  static userHasCart = userHasCart;
-  static addCourseToCart = addCourseToCart;
-  static getCart = getCart;
-  static removeCourseFromCart = removeCourseFromCart;
 }
 
 export { UserService };

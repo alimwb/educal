@@ -1,4 +1,4 @@
-import { UserService } from './user.service';
+import { ShopCartService } from './shopCart.service';
 import { shopCartModel } from '../../types/interfaces/models';
 
 type cartDataType = shopCartModel & {
@@ -19,7 +19,7 @@ type cartDataType = shopCartModel & {
  * @returns refer to {@link cartDataType}
  */
 
-async function getCart(this: typeof UserService, userId: number): Promise<cartDataType | null> {
+async function getCart(this: typeof ShopCartService, userId: number): Promise<cartDataType | null> {
   const cart = await this.carts.aggregate([
     { $match: { userId, isPaid: false } },
     {
