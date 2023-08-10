@@ -240,10 +240,10 @@ paths:
         401:
           $ref: "#/components/responses/res401"
 
-  /user/cart/add/{courseId}:
+  /cart/add/{courseId}:
     put: 
       tags:
-        - User
+        - Cart
       security:
         - { authToken: [] }
       summary: Add a course tot cart
@@ -270,10 +270,10 @@ paths:
         401:
           $ref: "#/components/responses/res401"
 
-  /user/cart:
+  /cart:
     get:
       tags:
-        - User
+        - Cart
       security:
         - { authToken: [] }
       summary: Get user's shopping cart
@@ -307,10 +307,10 @@ paths:
                     type: string
                     example: "4500000"
 
-  /user/cart/remove/{courseId}:
+  /cart/remove/{courseId}:
     delete:
       tags:
-        - User
+        - Cart
       security:
         - { authToken: [] }
       summary: Remove a course from shop cart
