@@ -1,4 +1,4 @@
-import { ShopCartService } from './shopCart.service';
+import { CartService } from './cart.service';
 import { CourseService } from '../course/course.service';
 
 /**
@@ -10,7 +10,7 @@ import { CourseService } from '../course/course.service';
  * @param courseId The id of target course.
  */
 
-async function addCourseToCart(this: typeof ShopCartService, userId: number, courseId: number) {
+async function addCourseToCart(this: typeof CartService, userId: number, courseId: number) {
   const course = await CourseService.getCourseById(courseId);
   const userHasCart = await this.userHasCart(userId);
 

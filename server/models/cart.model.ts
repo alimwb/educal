@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
-import { shopCartModel } from '../types/interfaces/models';
+import { cartModel } from '../types/interfaces/models';
 import { Counter } from './counter.model';
 
-const ShopCartSchema = new Schema<shopCartModel>(
+const CartSchema = new Schema<cartModel>(
   {
     _id: { type: Number },
     userId: { type: Number, required: true },
@@ -13,26 +13,26 @@ const ShopCartSchema = new Schema<shopCartModel>(
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-ShopCartSchema.virtual('user', {
+CartSchema.virtual('user', {
   ref: 'User',
   localField: 'userId',
   foreignField: '_id',
 });
 
-ShopCartSchema.virtual('courses', {
+CartSchema.virtual('courses', {
   ref: 'Course',
   localField: 'coursesIds',
   foreignField: '_id',
 });
 
-ShopCartSchema.pre('save', async function (next) {
-  const doc = await Counter.findOneAndUpdate({ collectionName: 'shopcarts' }, { $inc: { count: 1 } });
+CartSchema.pre('save', async function (next) {
+  const doc = await Counter.findOneAndUpdate({ collectionName: 'carts' }, { $inc: { count: 1 } });
 
   this._id = doc?.count as number;
 
   next();
 });
 
-const ShopCartModel = model('ShopCart', ShopCartSchema);
+const CartModel = model('Cart', CartSchema);
 
-export { ShopCartModel as ShopCart };
+export { CartModel as Cart };

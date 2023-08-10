@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addCourseToCart, getCart, removeCourseFromCart } from "../controllers/shopCart";
+import { addCourseToCart, getCart, removeCourseFromCart } from "../controllers/cart";
 
 const router = Router();
 
@@ -9,4 +9,4 @@ router.delete('/remove/:courseId', removeCourseFromCart);
 
 router.get('/', getCart);
 
-export { router as shopCartRouter };
+export { router as cartRouter };

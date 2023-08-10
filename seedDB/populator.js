@@ -8,7 +8,7 @@ const {
   Teacher,
   Discount,
   Rating,
-  ShopCart,
+  Cart,
   Transaction,
   Counter,
 } = require('../built/models');
@@ -23,7 +23,7 @@ async function populate() {
     courses,
     teachers,
     ratings,
-    shopCarts,
+    carts,
   } = require('./data');
 
   await removeAll();
@@ -32,14 +32,14 @@ async function populate() {
     ...teachers.map(teacher => Teacher.create(teacher)),
     ...courses.map(course => Course.create(course)),
     ...ratings.map(rate => Rating.create(rate)),
-    ...shopCarts.map(cart => ShopCart.create(cart)),
+    ...carts.map(cart => Cart.create(cart)),
   ]);
 
   console.log('users count --> expected:', users.length, ' | created:', await User.count());
   console.log('teachers count --> expected:', teachers.length, ' | created:',  await Teacher.count());
   console.log('courses count --> expected:', courses.length, ' | created:', await Course.count());
   console.log('ratings count --> expected:', ratings.length, ' | created:', await Rating.count());
-  console.log('shop carts count --> expected:', shopCarts.length, ' | created:', await ShopCart.count());
+  console.log('carts count --> expected:', carts.length, ' | created:', await Cart.count());
 
   process.exit(1);
 }
@@ -50,7 +50,7 @@ async function removeAll() {
     Teacher.deleteMany({}),
     Course.deleteMany({}),
     Rating.deleteMany({}),
-    ShopCart.deleteMany({}),
+    Cart.deleteMany({}),
     Counter.updateMany({}, { count: 1 }),
   ]);
 
@@ -58,7 +58,7 @@ async function removeAll() {
   console.log('teachers removed: ', count[1]);
   console.log('courses removed: ', count[2]);
   console.log('ratings removed: ', count[3]);
-  console.log('shop carts removed: ', count[4]);
+  console.log('carts removed: ', count[4]);
 }
 
 async function createCounters() {
@@ -67,7 +67,7 @@ async function createCounters() {
     Counter.create({ collectionName: 'teachers', count: 1 }).then(console.log.bind(console)),
     Counter.create({ collectionName: 'courses', count: 1 }).then(console.log.bind(console)),
     Counter.create({ collectionName: 'ratings', count: 1 }).then(console.log.bind(console)),
-    Counter.create({ collectionName: 'shopcarts', count: 1 }).then(console.log.bind(console)),
+    Counter.create({ collectionName: 'carts', count: 1 }).then(console.log.bind(console)),
   ]);
 
   process.exit(1);

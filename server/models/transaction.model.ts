@@ -21,7 +21,7 @@ TransactionSchema.virtual('user', {
 });
 
 TransactionSchema.virtual('cart', {
-  ref: 'ShopCart',
+  ref: 'Cart',
   localField: 'cartId',
   foreignField: '_id',
 });

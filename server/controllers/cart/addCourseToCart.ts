@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { middlewareWrapper, checkRouteParamType } from "../../middlewares";
-import { ShopCartService } from "../../services";
+import { CartService } from "../../services";
 import { passport } from "../../config";
 import { userModel } from "../../types/interfaces/models";
 
@@ -12,7 +12,7 @@ const controller = [
   middlewareWrapper(async (req: Request, res: Response) => {
     const reqUserObj = req.user as Omit<userModel, 'password'>;
     
-    await ShopCartService.addCourseToCart(reqUserObj._id, +req.params.courseId);
+    await CartService.addCourseToCart(reqUserObj._id, +req.params.courseId);
 
     res.json({
       message: 'دوره به سبد خرید اضافه شد',

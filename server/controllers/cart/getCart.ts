@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { middlewareWrapper } from "../../middlewares";
-import { ShopCartService } from "../../services";
+import { CartService } from "../../services";
 import { passport } from "../../config";
 import { userModel } from "../../types/interfaces/models";
 
@@ -9,7 +9,7 @@ const controller = [
 
   middlewareWrapper(async (req: Request, res: Response) => {
     const reqUserObj = req.user as Omit<userModel, 'password'>;
-    const cart = await ShopCartService.getCart(reqUserObj._id);
+    const cart = await CartService.getCart(reqUserObj._id);
     
     if (cart === null) {
       res.json({

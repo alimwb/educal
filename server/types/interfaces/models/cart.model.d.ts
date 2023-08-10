@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 import { courseModel } from "./course.model";
 
-interface shopCartModel {
+interface cartModel {
   _id: number;
   userId: number;
   coursesIds: number[];
@@ -9,4 +9,4 @@ interface shopCartModel {
   isPaid: boolean;
 }
 
-export { shopCartModel };
+export { cartModel };

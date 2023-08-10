@@ -1,14 +1,14 @@
 import { BadRequestErr } from '../../helpers/errors';
-import { ShopCartService } from './shopCart.service';
+import { CartService } from './cart.service';
 
 /**
- * Removes the given course from the user's shopping cart.
+ * Removes the given course from the user's cart.
  * 
  * @param userId Ther target user's id
- * @param courseId The course's id to remove from shopping cart
+ * @param courseId The course's id to remove from cart
  */
 
-async function removeCourseFromCart(this: typeof ShopCartService, userId: number, courseId: number) {
+async function removeCourseFromCart(this: typeof CartService, userId: number, courseId: number) {
   const cart = await this.getCart(userId);
 
   if (cart === null) {
