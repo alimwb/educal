@@ -246,7 +246,7 @@ paths:
         - Cart
       security:
         - { authToken: [] }
-      summary: Add a course tot cart
+      summary: Add a course to cart
       description: User must be logged in. Using this route, you can add a course to user's shop cart by course id. 
       parameters:
         - name: courseId
