@@ -14,7 +14,7 @@ const Header = (props) => {
    const router = useRouter();
    const { authData } = props;
    const [path, setPath] = useState("");
-
+console.log(authData);
    useEffect(() => {
       setPath(router.pathname)
    }, [router])
@@ -37,7 +37,7 @@ const Header = (props) => {
    // Sticky Menu Area End
 
 
-   const logOutHandler = ()=>{
+   const logOutHandler = () => {
       storage.removeItem('persist:root');
       router.push('/');
    }
@@ -102,23 +102,8 @@ const Header = (props) => {
                            <div className="main-menu d-none d-xl-block">
                               <nav id="mobile-menu">
                                  <ul>
-                                    <li className="has-dropdown">
-                                       <Link href="/">Home</Link>
-                                       <ul className="submenu">
-                                          <li><Link href="/">Home Style 1</Link></li>
-                                          <li><Link href="/home-2">Home Style 2</Link></li>
-                                          <li><Link href="/home-3">Home Style 3</Link></li>
-                                       </ul>
-                                    </li>
-                                    <li className="has-dropdown">
-                                       <Link href="/course-grid">Courses</Link>
-                                       <ul className="submenu">
-                                          <li><Link href="/course-grid">Courses</Link></li>
-                                          <li><Link href="/course-list">Courses List</Link></li>
-                                          <li><Link href="/course-sidebar">Courses Sidebar</Link></li >
-                                          <li><Link href="/course-details">Courses Details</Link></li >
-                                       </ul >
-                                    </li >
+                                    <li><Link href="/">Home</Link></li>
+                                    <li><Link href="/course-grid">Courses</Link></li>
                                     <li className="has-dropdown">
                                        <Link href="/blog">Blog</Link>
                                        <ul className="submenu">
@@ -142,9 +127,9 @@ const Header = (props) => {
                                        </ul >
                                     </li >
                                     <li><Link href="/contact">Contact</Link></li >
-                                 </ul >
-                              </nav >
-                           </div >
+                                 </ul>
+                              </nav>
+                           </div>
                            <div className="header__search p-relative ml-50 d-none d-md-block">
                               <form action="#">
                                  <input type="text" placeholder="Search..." />
@@ -175,7 +160,7 @@ const Header = (props) => {
                                  <span className="cart-item">2</span>
                               </span>
                            </div>
-                           {authData === null ?
+                           {!authData ?
                               <Link href="/sign-up" className="e-btn ms-3">Sign Up</Link>
                               :
                               <div className="header__btn ml-20 d-none d-sm-block">
@@ -186,17 +171,17 @@ const Header = (props) => {
                                     <Dropdown.Menu alignright="true" className="profile-notification">
                                        <div className="text-center bg-body-light border-bottom rounded-top">
                                           <img className="img-avatar img-avatar48 img-avatar-thumb" src="assets/img/blog/author/blog-author-1.jpg" alt="" />
-                                          <p className="mt-2 mb-0 fw-medium">{authData.firstName!==null?authData.firstName:null}</p>
-                                          <p className="mb-0 text-muted fs-sm fw-medium">{authData.email!==null?authData.email :null}</p>
+                                          <p className="mt-2 mb-0 fw-medium">{authData.firstName !== null ? authData.firstName : null}</p>
+                                          <p className="mb-0 text-muted fs-sm fw-medium">{authData.email !== null ? authData.email : null}</p>
                                        </div>
                                        <div>
-                                          <a className="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_profile.html">
+                                       <Link href="/profile" className="dropdown-item d-flex align-items-center justify-content-between" >
                                              <span className="fs-sm fw-medium">Profile</span>
                                              {/* <span className="badge rounded-pill bg-primary ms-2">1</span> */}
-                                          </a>
-                                          <a className="dropdown-item d-flex align-items-center justify-content-between" href="#">
+                                          </Link>
+                                          <Link className="dropdown-item d-flex align-items-center justify-content-between" href="#">
                                              <span className="fs-sm fw-medium">Settings</span>
-                                          </a>
+                                          </Link>
                                        </div>
                                        <div role="separator" className="dropdown-divider m-0"></div>
                                        <div>

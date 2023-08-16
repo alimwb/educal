@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderThree from '../components/Layout/Header/HeaderStyleThree';
+import Header from '../components/Layout/Header/Header';
 import FooterThree from '../components/Layout/Footer/FooterStyleThree';
 import MyCart from '../components/MyCart/MyCartMain';
 
@@ -14,7 +14,7 @@ class Cart extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <HeaderThree />
+            <Header />
             <MyCart />
             <FooterThree />
             </React.Fragment>

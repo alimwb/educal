@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 const Tabs = dynamic(import('react-tabs').then(mod => mod.Tabs), { ssr: false })
 import { Tab, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import PaginationSection from '../../Common/Pagination';
+// import PaginationSection from '../../Common/Pagination';
 import Link from 'next/link';
 import UseHttp from "../../../Hooks/HttpHooks"
 import Loading from "../../../components/Loading"
@@ -11,7 +11,7 @@ import Loading from "../../../components/Loading"
 
 export default () => {
     const http = new UseHttp();
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [data, setData] = useState([])
     useLayoutEffect(() => {
         (async function fetchData() {
@@ -45,7 +45,7 @@ export default () => {
     return (
         <section className="course__area pt-120 pb-120">
             {loading ?
-                <div className='d-flex justify-center' id="loading" style={{ width: "100px", height: "100px" }}>
+                <div className='m-auto' id="loading" style={{ width: "100px", height: "100px" }}>
                     <Loading />
                 </div>
                 :
@@ -220,7 +220,7 @@ export default () => {
                                 </div>
                             </div>
                         </div>
-                        <PaginationSection />
+                        {/* <PaginationSection /> */}
                     </div>
                 </Tabs>
             }

@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeTwoMain from '../components/HomeTwo/HomeTwoMain';
 import FooterStyleTwo from '../components/Layout/Footer/FooterStyleTwo';
-import HeaderTwo from '../components/Layout/Header/HeaderStyleTwo';
+import Header from '../components/Layout/Header/Header';
 
 class HomeTwo extends React.Component {
 
@@ -14,7 +14,7 @@ class HomeTwo extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <HeaderTwo />
+            <Header />
             <HomeTwoMain />
             <FooterStyleTwo />
             </React.Fragment>

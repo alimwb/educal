@@ -6,7 +6,7 @@ import ForgetPasswordMain from '../components/ForgetPassword/ForgetPasswordMain'
 
 class ForgetPassword extends React.Component {
 
-    static getInitialProps({store}) {}
+    static getInitialProps({ store }) { }
 
     constructor(props) {
         super(props);
@@ -15,9 +15,9 @@ class ForgetPassword extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <HeaderFour />
-            <ForgetPasswordMain />
-            <FooterThree />
+                <Header />
+                <ForgetPasswordMain />
+                <FooterThree />
             </React.Fragment>
         );
     }

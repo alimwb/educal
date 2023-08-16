@@ -5,7 +5,7 @@ import EventDetailsMain from '../components/EventDetails/EventDetailsMain';
 
 class EventDetails extends React.Component {
 
-    static getInitialProps({store}) {}
+    static getInitialProps({ store }) { }
 
     constructor(props) {
         super(props);
@@ -14,9 +14,9 @@ class EventDetails extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <HeaderFour />
-            <EventDetailsMain />
-            <Footer />
+                <Header />
+                <EventDetailsMain />
+                <Footer />
             </React.Fragment>
         );
     }

@@ -5,7 +5,7 @@ import HeaderFour from '../components/Layout/Header/HeaderStyleFour';
 
 class Error extends React.Component {
 
-    static getInitialProps({store}) {}
+    static getInitialProps({ store }) { }
 
     constructor(props) {
         super(props);
@@ -14,9 +14,9 @@ class Error extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <HeaderFour />
-            <ErrorMain />
-            <FooterThree />
+                <Header />
+                <ErrorMain />
+                <FooterThree />
             </React.Fragment>
         );
     }

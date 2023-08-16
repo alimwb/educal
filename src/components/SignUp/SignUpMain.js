@@ -17,11 +17,11 @@ const SignUpMain = () => {
     const http = new UseHttp();
 
     let EMAIL_REGX = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
-        const validationSchema = yup.object().shape({
+    const validationSchema = yup.object().shape({
         firstName: yup.string().required("Required"),
         lastName: yup.string().required("Required"),
         email: yup.string().matches(EMAIL_REGX, "Invalid email address"),
-        password:yup.string().min(8, 'Must be exactly 5 digits').max(30, 'Must be exactly 30 digits').required("Required"),
+        password: yup.string().min(8, 'Must be exactly 5 digits').max(30, 'Must be exactly 30 digits').required("Required"),
         passwordConfirm: yup.string().min(8, 'Must be exactly 5 digits').max(30, 'Must be exactly 30 digits').required("Required"),
         agree: yup.boolean().oneOf([true], 'Message'),
     });
@@ -175,12 +175,12 @@ const SignUpMain = () => {
                                                     <ErrorMessage name="agree" component="div" />
                                                 </div>
                                                 <button className="e-btn  w-100" type="submit" disabled={isSubmitting}>
-                                                {loading ?
-                                                        <div id="loading">
+                                                    {loading ?
+                                                        <div id="loading" style={{ width: "30px", height: "30px" }}>
                                                             <Loading />
                                                         </div>
-                                                        : 'Submit'}              
-                                                                                  </button>
+                                                        : 'Submit'}
+                                                </button>
                                                 <div className="sign__new text-center mt-20">
                                                     <p>Already in Markit ? <Link href="/sign-in">Sign In</Link></p>
                                                 </div>

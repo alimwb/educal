@@ -1,7 +1,7 @@
 import React from 'react';
 import InstructorMain from '../components/Instructor/InstructorMain';
 import Footer from '../components/Layout/Footer/Footer';
-import HeaderThree from '../components/Layout/Header/HeaderStyleThree';
+import Header from '../components/Layout/Header/Header';
 
 class Instructor extends React.Component {
 
@@ -14,7 +14,7 @@ class Instructor extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <HeaderThree />
+                <Header />
                 <InstructorMain />
                 <Footer />
             </React.Fragment>

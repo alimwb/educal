@@ -157,7 +157,7 @@ const SignInMain = () => {
                                                 </div>
                                                 <button className="e-btn  w-100" type="submit" disabled={isSubmitting}>
                                                     {loading ?
-                                                        <div id="loading">
+                                                        <div id="loading" style={{ width: "30px", height: "30px" }}>
                                                             <Loading />
                                                         </div>
                                                         : 'Submit'}

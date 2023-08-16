@@ -1,24 +1,24 @@
 import React from 'react';
 import FooterThree from '../components/Layout/Footer/FooterStyleThree';
-import HeaderFour from '../components/Layout/Header/HeaderStyleFour';
+import Header from '../components/Layout/Header/Header';
 import SignUpMain from '../components/SignUp/SignUpMain';
 import { useRouter } from 'next/router';
 import { connect } from 'react-redux';
 
-const SignIn = (props)=>{
+const SignIn = (props) => {
     const { authData } = props;
     const router = useRouter();
-    if (authData !== null) {
-        router.push('/');
+    if (authData) {
+        router.push('/sign-in');
     }
-        return (
-            <React.Fragment>
-            <HeaderFour />
+    return (
+        <React.Fragment>
+            <Header />
             <SignUpMain />
             <FooterThree />
-            </React.Fragment>
-        );
-    }
+        </React.Fragment>
+    );
+}
 
 
 

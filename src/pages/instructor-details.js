@@ -5,7 +5,7 @@ import InstructorDetailsMain from '../components/InstructorDetails/InstructorDet
 
 class InstructorDetails extends React.Component {
 
-    static getInitialProps({store}) {}
+    static getInitialProps({ store }) { }
 
     constructor(props) {
         super(props);
@@ -14,9 +14,9 @@ class InstructorDetails extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <HeaderFour />
-            <InstructorDetailsMain />
-            <Footer />
+                <Header />
+                <InstructorDetailsMain />
+                <Footer />
             </React.Fragment>
         );
     }

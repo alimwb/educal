@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseSidebarMain from '../components/CourseSidebar/CourseSidebarMain';
 import Footer from '../components/Layout/Footer/Footer';
-import HeaderThree from '../components/Layout/Header/HeaderStyleThree';
+import Header from '../components/Layout/Header/Header';
 
 class CourseSidebar extends React.Component {
 
@@ -14,7 +14,7 @@ class CourseSidebar extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <HeaderThree />
+            <Header />
             <CourseSidebarMain />
             <Footer />
             </React.Fragment>
